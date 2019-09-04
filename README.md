@@ -1,6 +1,8 @@
-#Starter Child Theme for CD Projects
+Starter Child Theme for CD Projects
+===================================
 
-##Usage
+Usage
+-------
 
 1. Grab a copy of this "cwd\_project" folder from the [GitHub repo](https://github.com/CU-CommunityApps/cwd_project).
 
