@@ -1,0 +1,6 @@
+global-styling:
+  css:
+    theme:
+      css/project.css: {}
+  js:
+    js/project.js: {}
