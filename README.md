@@ -1,3 +1,5 @@
+[![Latest Stable Version](https://img.shields.io/packagist/v/cubear/cwd_project.svg?style=flat-square)](https://packagist.org/packages/cubear/cwd_project)
+
 Starter Child Theme for CD Projects
 ===================================
 
