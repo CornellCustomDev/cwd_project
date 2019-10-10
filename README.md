@@ -35,3 +35,5 @@ Usage
 7. There is also a `screenshot.png` file in the theme which is used in the Drupal CMS. Ask a designer for help updating this!
 
 	> If you want it to match the Base Theme, the typography is done in Avenir Next Medium.
+
+8. Remove composer.json from your new theme (no need to keep it).
