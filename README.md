@@ -18,7 +18,7 @@ Usage
 	
 		> CSS and JavaScript assets should be renamed too, but don't need to match the theme's machine name. Simplifying to **ursine.css** would be fine, for example.
 		
-		> The starter `project.scss` and `project.css` files are empty (except for some breakpoint recommendations in comments). The starter `project.js` is also empty, except for Drupal-specific search code that we commonly need on every project (but also commonly customize). 
+		> The starter `project.scss` and `project.css` files are empty (except for some breakpoint recommendations in comments). The starter `project.js` is also empty, except for Drupal-specific search code that we commonly need on every project (but also commonly customized). 
 
 4. The "project" machine name must also be updated in the contents of the newly renamed **cwd\_ursine.info.yml**. These instances are marked with a `@CUSTOMIZE` comment for extra clarity. For example, in the libraries section:
 
