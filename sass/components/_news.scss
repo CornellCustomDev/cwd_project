@@ -1,0 +1,35 @@
+// CWD Component: News
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+
+// Component Class
+.cwd-news {
+	
+	
+	// Container Class Options ---------------------------------
+	
+	// .animate
+	&.animate {
+		
+	}
+	
+	// .tiles
+	&.tiles {
+		
+	}
+	
+}
+
+// .dark (for display over dark backgrounds)
+.dark .cwd-news {
+	
+}

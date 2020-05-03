@@ -1,6 +1,9 @@
-// CWD Starter Project Styles
+// Import CWD Cornell Framework variables
+@import "cwd-variables";
+
+// Basic Starter Project (includes Freight fonts)
 // ---------------------------------------------------------------------------
-// Recommended breakpoints to match the base theme:
+// Recommended breakpoints to match base theme:
 // @media (min-width: 321px) - above 3.5" phones begins
 // @media (min-width: 480px)
 // @media (min-width: 624px)
@@ -10,7 +13,20 @@
 // @media (min-width: 1200px)
 // @media (min-width: 1400px) - maximum content width begins
 
-// Import CWD Cornell Framework variables
-@import "cwd-variables";
+// Set project link and button colors (or accept the defaults) 
+$project-color-link: $cwd-color-link; // default text link color
+$project-color-link-hover: $cwd-color-link-hover; // text link :hover color (also used for :focus)
+$project-color-link-active: $cwd-color-link-active; // text link :active color
+$project-color-button: $cwd-color-button; // default button link color
+$project-color-button-hover: $cwd-color-button-hover; // text button :hover color (also used for :focus)
+$project-color-button-active: $cwd-color-button-active; // text button :active color
 
-// Project Styles
+// Import CWD Components
+@import "components/type-freight";
+@import "components/utility";
+@import "components/basic";
+@import "components/events";
+//@import "components/news";
+//@import "components/people";
+
+

@@ -4,3 +4,8 @@ global-styling:
       css/project.css: {}
   js:
     js/project.js: {}
+
+typekit:
+  css:
+    theme:
+      https://use.typekit.net/nwp2wku.css: {} # @CUSTOMIZE

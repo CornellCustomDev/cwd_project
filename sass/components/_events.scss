@@ -1,0 +1,278 @@
+// CWD Component: Events
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+
+// Component Class
+.cwd-events {
+	
+	.location {
+		font-family: $project-font-family-sans-alt;
+		color: #666;
+		font-weight: 500;
+	}
+	time {
+		@extend .flex;
+		@extend .flex-dom-reverse;
+		background: #b31b1b;
+		color: #fff;
+		width: 62px;
+		padding: 0.4em 0.3em;
+		font-family: $project-font-family-sans-alt;
+		font-variant-numeric: lining-nums;
+		font-feature-settings: "lnum";
+		font-size: 12px;
+		text-align: center;
+		float: left;
+		margin: 0 20px 15px 0;
+		
+		.month {
+			width: 100%;
+			font-weight: 600;
+			line-height: 1.4;
+			text-transform: uppercase;
+			color: #eed3cd;
+		}
+		.day {
+			width: 100%;
+			font-family: $project-font-family-serif-alt;
+			font-size: 300%;
+			line-height: 1;
+		}
+	}
+	
+	.group-image {
+		display: block;
+		position: relative;
+		
+		time {
+			position: absolute;
+			z-index: 2;
+			left: 0;
+			top: 5px;
+      background: none;
+			@extend .flex-dom-reverse;
+			
+			.day {
+				position: relative;
+			}
+			.month {
+				position: relative;
+				left: -0.2em;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 0;
+				background: none;
+				border-top: 104px solid #b31b1b;
+				border-right: 104px solid transparent;
+				transition: border-color 0.2s;
+			}
+			
+			@media (min-width: 768px) {
+				width: 30px;
+				font-size: 11px;
+				top: 0;
+				
+				.day {
+					font-size: 145.45%;
+				}
+				.month {
+					left: -0.1em;
+				}
+				&:before {
+					border-top-width: 58px;
+					border-right-width: 58px;
+				}
+			}
+			@media (min-width: 1080px) {
+				width: 40px;
+				font-size: 12px;
+				top: 1px;
+				
+				.day {
+					font-size: 166.67%;
+				}
+				&:before {
+					border-top-width: 74px;
+					border-right-width: 74px;
+				}
+			}
+		}
+		img {
+			border-top: 5px solid #b31b1b;
+			transition: border-color 0.2s;
+			
+			@media (min-width: 768px) {
+				border-top-width: 4px;
+			}
+		}
+		a {
+			
+			&:hover time:before, &:hover img {
+				border-top-color: #cf2525;
+			}
+			&:active, &:active img {
+				border-top-color: #901414;
+			}
+			
+		}
+	}
+	
+	.group-noimage {
+		
+		a {
+			@extend .flex;
+			@extend .flex-dom-reverse;
+			transition: background-color 0.2s;
+			
+			@media (min-width: 992px) {
+				display: block;
+			}
+			
+			&:hover time {
+				background: #cf2525;
+			}
+			&:active time {
+				background: #901414;
+			}
+		}
+		time {
+			
+			@media (max-width: 991px) { // note: max-width media query instead of min
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: row;
+				-moz-box-orient: horizontal;
+				-moz-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				width: auto;
+				padding: 0;
+				margin-right: 0;
+			
+				.month, .day {
+					width: auto;
+					font-family: $project-font-family-sans-alt;
+					font-size: 15px;
+					font-weight: 600;
+					line-height: 1;
+					padding: 0.5em 0.4em;
+				}
+				.month {
+					background: rgba(0,0,0,0.2);
+					padding: 0.5em;
+				}
+			}
+		}
+		& + .group-fields {
+			clear: both;
+		}
+		@media (min-width: 992px) {
+			h3 {
+				float: right;
+				width: calc(100% - 82px) !important;
+			}
+			& + .group-fields {
+				clear: none;
+				float: right;
+				width: calc(100% - 82px) !important;
+			}
+		}
+	}
+	
+	
+	
+	// Container Class Options ---------------------------------
+	
+	// .animate
+	&.animate {
+		
+	}
+	
+	// .tiles
+	&.tiles {
+		//.cwd-basic .card .group-image + .group-fields
+		.group-image {
+			time {
+				width: 62px;
+				top: 5px;
+			
+				.day {
+					font-size: 300%;
+				}
+				.month {
+					left: -0.2em;
+				}
+				&:before {
+					border-top-width: 104px;
+					border-right-width: 104px;
+				}
+			}
+			img {
+				border-top-width: 5px;
+			}
+			
+			& + .group-fields {
+				width: 100% !important;
+			}
+		}
+		.group-noimage {
+			
+			a {
+				@extend .flex;
+				@extend .flex-dom-reverse;
+			}
+			time {
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: row;
+				-moz-box-orient: horizontal;
+				-moz-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				width: auto;
+				padding: 0;
+				margin-right: 0;
+			
+				.month, .day {
+					width: auto;
+					font-family: $project-font-family-sans-alt;
+					font-size: 15px;
+					font-weight: 600;
+					line-height: 1;
+					padding: 0.5em 0.4em;
+				}
+				.month {
+					background: rgba(0,0,0,0.2);
+					padding: 0.5em;
+				}
+			}
+			
+			h3, & + .group-fields {
+				width: 100% !important;
+				margin-top: 0;
+			}
+		}
+	}
+	
+}
+
+// .dark (for display over dark backgrounds)
+.dark .cwd-events {
+	.location {
+		color: #ddd;
+	}
+}

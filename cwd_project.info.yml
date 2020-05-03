@@ -23,5 +23,6 @@ regions:
 
 libraries:
   - 'cwd_project/global-styling' # @CUSTOMIZE
+  - 'cwd_project/typekit' # @CUSTOMIZE
 #ckeditor_stylesheets:
 #  - 'css/ckeditor/ckeditor.css'

@@ -1,0 +1,355 @@
+// Import CWD Cornell Framework variables
+@import "../cwd-variables";
+
+/* Implement and adjust for Cornell's Freight font families
+   ******************************************************** */
+
+/* Drupal CMS */
+.messages, .pager ul li {
+	font-size: 15px;
+}
+.messages .message__single:before, .messages .messages__item:before {
+	font-size: 18px;
+	line-height: 1;
+}
+
+/* Typography */
+body, table, #main form label, #main-navigation li {
+	font-family: $cornell-font-family-sans-serif;
+	font-size: 16px;
+}
+#cu-header, .cwd-component .metadata-set {
+	font-size: 14px;
+}
+body > footer, #main .secondary, .cwd-component .summary, .cwd-component .text, #utility-navigation li, .breadcrumb li, article footer, .smallprint {
+	font-size: 16px;
+	line-height: 1.45;
+}
+#main .secondary, .smallprint {
+	line-height: 1.5;
+}
+body > footer ul li, body > footer .sub-footer, #main form .description, .photo-info {
+	font-size: 15px;
+}
+h1, h4, h5, h6, .h4, .h5, .h6, .sans, .intro, #utility-navigation li, .breadcrumb, .secondary-navigation ul ul li, .menu-block-title + .secondary-navigation ul li {
+	font-family: $cornell-font-family-sans-serif;
+}
+h1, .h1 {
+	font-size: 33px;
+}
+h2, .h2 {
+	font-size: 27px;
+	font-family: $cornell-font-family-sans-serif;
+}
+h3, .h3 {
+	font-size: 23px;
+	font-family: $cornell-font-family-sans-serif;
+}
+h4, .h4 {
+	font-size: 19px;
+}
+h5, .h5, h6, .h6 {
+	font-size: 16px;
+}
+main .secondary h2, main .secondary h3, main .secondary .h2, main .secondary .h3, 
+.band[role='complementary'] h2, .band[role='complementary'] h3, .band[role='complementary'] .h2, .band[role='complementary'] .h3, 
+.secondary-navigation ul li, .secondary .menu-block-title {
+	font-family: $cornell-font-family-serif;
+}
+// #main h2 {
+// 	color: #333;
+// }
+#main .secondary h2, .secondary .menu-block-title > a {
+	color: #7e7e7e;
+}
+.intro {
+	font-size: 20px;
+	line-height: 1.5;
+}
+strong {
+	font-weight: 600;
+}
+.cwd-component h3 {
+	font-size: 21px;
+}
+.cwd-component .subheading h4 {
+	text-transform: uppercase;
+	color: #b31b1b !important;
+}
+.cwd-events .location {
+	font-weight: 400;
+}
+body > footer .h5 {
+	font-size: 20px;
+	font-weight: 400;
+}
+body > footer .h6 {
+	font-size: 16px;
+	font-weight: 600;
+}
+.cu-gray #cu-header .cu-brand h2, .cu-black #cu-header .cu-brand h2, .cu-red #cu-header .cu-brand h2 {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#cu-header .cu-brand h2 {
+	font-weight: 400;
+}
+#cu-header .cu-brand h3 {
+	font-size: 15px;
+	font-family: $cornell-font-family-serif;
+	margin-top: 0.5em;
+}
+#main .secondary h2, .secondary-navigation ul li {
+	font-size: 24px;
+	//max-width: 480px;
+	//margin-left: auto;
+	//margin-right: auto;
+}
+.secondary-navigation ul ul li, .menu-block-title + .secondary-navigation ul li {
+	font-size: 19px;
+	font-weight: 400;
+}
+.secondary-navigation .current-menu-item > a, .secondary-navigation .active > a, .secondary-navigation li > a.is-active, 
+.menu-block-title + .secondary-navigation .current-menu-item > a, .menu-block-title + .secondary-navigation .active > a, .menu-block-title + .secondary-navigation li > a.is-active {
+	font-weight: 500;
+	font-size: 105.2%;
+}
+.secondary-navigation ul ul ul li, .menu-block-title + .secondary-navigation ul ul li {
+	font-size: 16px;
+}
+
+/* Links */
+body > footer .footer-links a, .footer-links-mimic a {
+	color: #fff;
+	-moz-text-decoration-color: rgba(255,255,255,0.4);
+	-webkit-text-decoration-color: rgba(255,255,255,0.4);
+	text-decoration-color: rgba(255,255,255,0.4);
+}
+.cwd-component a.designer, .cwd-component a .designer .deco, .cwd-component .designer a {
+	background-position: 0 1.2em;
+}
+.cwd-component a.designer:hover, .cwd-component a:hover .designer .deco, .cwd-component .designer a:hover {
+	background-position: 0 1.2em;
+}
+
+/* Layout */
+.band.accent1 {
+	background: #f7f7f7;
+}
+
+/* Forms */
+fieldset.semantic legend, #main fieldset.semantic legend, 
+fieldset fieldset legend, #main fieldset fieldset legend, 
+form.webform-submission-form fieldset legend, #main form.webform-submission-form fieldset legend {
+	font-family: $cornell-font-family-serif;
+	font-size: 21px;
+}
+
+
+
+
+// ************************************************************************ //
+@media (min-width: 321px) { // ABOVE 3.5" PHONES ************************** //
+
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 480px) { // EXTRA SMALL GRID *************************** //
+
+#cu-header .cu-brand h3 {
+	font-size: 16px;
+}
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 624px) { // KINDA SMALL GRID *************************** //
+
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 768px) { // SMALL GRID ********************************* //
+
+main, #main {
+	padding-top: 2.75em;
+}
+#cu-header .cu-brand h2 {
+	font-size: 34px;
+}
+#cu-header .cu-brand h3 {
+	font-size: 18px;
+	margin-top: 0.2em;
+}
+#main .secondary h2, .secondary-navigation ul li {
+	font-size: 23px;
+}
+#main .secondary h2, .secondary-navigation ul li {
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 992px) { // MEDIUM GRID ******************************** //
+
+#cu-header .cu-brand h2 {
+	font-size: 40px;
+}
+#cu-header .cu-brand h3 {
+	font-size: 19px;
+}
+.cu-seal #cu-header .cu-brand {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+body > footer .main-footer {
+	padding: 55px 0;
+}
+#main-navigation li {
+	font-size: 17px;
+}
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 1080px) { // MEDIUM-LARGE GRID ***************** //
+
+body, .breadcrumb li, #main form label {
+	font-size: 18px;
+}
+body > footer, #main .secondary, #main form .option-label {
+	font-size: 17px;
+}
+#main form .description {
+	font-size: 16px;
+}
+.intro {
+	font-size: 23px;
+	line-height: 1.6;
+}
+.cwd-card-grid h3 {
+	font-size: 24px;
+}
+.cwd-component .subheading h4 {
+	font-size: 15px;
+}
+.cwd-component .summary, .cwd-component .text {
+	font-size: 18px;
+}
+.cu-seal .mobile-button {
+	width: 44px;
+	height: 43px;
+}
+#utility-navigation a {
+	height: 38px;
+	line-height: 38px;
+	padding: 0 22px;
+}
+#main .secondary h2, .secondary-navigation ul li {
+	font-size: 26px;
+}
+h1, .h1 {
+	font-size: 36px;
+}
+h2, .h2 {
+	font-size: 31px;
+}
+h3, .h3 {
+	font-size: 26px;
+}
+h4, .h4 {
+	font-size: 20px;
+}
+h5, .h5, h6, .h6 {
+	font-size: 17px;
+}
+.cwd-component h3 {
+	font-size: 24px;
+}
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 1200px) { // LARGE GRID ************************ //
+
+#cu-header .cu-brand h2 {
+	font-size: 46px;
+}
+#cu-header .cu-brand h3 {
+	font-size: 23px;
+	margin-top: 0.15em;
+}
+.cu-seal #cu-header .cu-brand {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#main .secondary h2, .secondary-navigation ul li {
+	font-size: 30px;
+}
+
+
+} // ************** //
+// ************************************************************************ //
+@media (min-width: 1480px) { // EXTRA-LARGE GRID ****************** //
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media only print {  // PRINT ********************************************* //
+
+
+
+
+} // ************** //
+
+// Prevent iPhone Safari Form Zoom
+// ************************************************************************ //
+@media (max-width: 767px) { // ************ //
+
+.mobile .breadcrumb + h2 {
+	font-size: 23px !important;
+}
+.mobile .breadcrumb + h2 + .secondary-navigation li, .mobile .breadcrumb + h2 + .secondary-navigation li li {
+	font-size: 16px !important;
+	font-weight: 400;
+}
+
+} // ************** //
+// ************************************************************************ //
+@media (max-width: 479px) { // ************ //
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (max-width: 991px) { // DESKTOP FIRST MEDIUM ******* //
+
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (max-width: 767px) { // DESKTOP FIRST SMALL ******** //
+
+
+
+} // ************** //
+// ************************************************************************ //
+@media (max-width: 479px) { // DESKTOP FIRST EXTRA SMALL ** //
+
+
+
+} // ************** //
+
+
+
+
+

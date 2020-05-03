@@ -1,0 +1,73 @@
+// Set project fonts, link and button colors to the CWD defaults if not set in the main project stylesheet 
+$project-font-family-sans-alt: $cwd-font-family-sans-alt !default; // alternate/accent sans font
+$project-font-family-sans-ui: $cwd-font-family-sans-ui !default; // UI sans font (might be used for extra precision in certain interface elements)
+$project-font-family-serif-alt: $cwd-font-family-serif-alt !default; // alternate/accent serif font
+$project-color-link: $cwd-color-link !default; // default text link color
+$project-color-link-hover: $cwd-color-link-hover !default; // text link :hover color (also used for :focus)
+$project-color-link-active: $cwd-color-link-active !default; // text link :active color
+$project-color-button: $cwd-color-button !default; // default button link color
+$project-color-button-hover: $cwd-color-button-hover !default; // text button :hover color (also used for :focus)
+$project-color-button-active: $cwd-color-button-active !default; // text button :active color
+
+// Shared Utility Classes
+
+.stunt-double-lite {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+.flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.vertical-align {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.icon-fa:before, .icon-fa:after {
+	font: normal normal normal 14px/1 FontAwesome;
+	speak: none;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-zmdi:before, .icon-zmdi:after {
+	display: inline-block;
+	font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+	font-size: inherit;
+	speak: none;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.flex-dom-reverse {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	-webkit-flex-direction: column-reverse;
+	-moz-box-orient: vertical;
+	-moz-box-direction: reverse;
+	-ms-flex-direction: column-reverse;
+	flex-direction: column-reverse;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-moz-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
