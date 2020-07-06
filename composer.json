@@ -11,5 +11,23 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "install-project": [
+            "sed -i '' \"s/'CWD Starter Theme' # @CUSTOMIZE/'$SITE_NAME Theme'/\" cwd_project.info.yml",
+            "sed -i '' \"s/cwd_project/$THEME/g\" cwd_project.info.yml",
+            "mv cwd_project.info.yml $THEME.info.yml",
+            "sed -i '' \"s/project\\./$THEME\\./g\" cwd_project.libraries.yml",
+            "mv cwd_project.libraries.yml $THEME.libraries.yml",
+            "mv cwd_project.theme $THEME.theme",
+            "sed -i '' \"s/project/$THEME/g\" css/project.css.map",
+            "mv css/project.css.map css/$THEME.css.map",
+            "sed -i '' \"s/project\\.css\\.map/$THEME\\.css\\.map/g\" css/project.css",
+            "mv css/project.css css/$THEME.css",
+            "mv sass/project.scss sass/$THEME.scss",
+            "mv js/project.js js/$THEME.js",
+            "mv ../cwd_project ../$THEME",
+            "rm composer.json"
+        ]
+    }
 }

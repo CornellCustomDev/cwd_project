@@ -37,3 +37,13 @@ Usage
 	> If you want it to match the Base Theme, the typography is done in Avenir Next Medium.
 
 8. Remove composer.json from your new theme (no need to keep it).
+
+
+Composer Script
+---------------
+
+Still experimental...
+
+1. `composer require cu_bear/cwd_project`
+2. `cd web/themes/custom/cwd_project`
+3. `composer install-project`
