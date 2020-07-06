@@ -47,7 +47,8 @@ Still experimental... does all of the above for you except #7:
 ```bash
 > export SITE_NAME=[YOUR SITE DESCRIPTIVE NAME]
 > export THEME=[YOUR CUSTOM THEME DIRECTORY NAME]
-> composer require cu_bear/cwd_project
+> composer require cubear/cwd_project
 > cd web/themes/custom/cwd_project
 > composer install-project
+> composer remove cubear/cwd_project
 ```
