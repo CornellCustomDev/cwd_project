@@ -42,8 +42,12 @@ Usage
 Composer Script
 ---------------
 
-Still experimental...
+Still experimental... does all of the above for you except #7:
 
-1. `composer require cu_bear/cwd_project`
-2. `cd web/themes/custom/cwd_project`
-3. `composer install-project`
+```bash
+> export SITE_NAME=[YOUR SITE DESCRIPTIVE NAME]
+> export THEME=[YOUR CUSTOM THEME DIRECTORY NAME]
+> composer require cu_bear/cwd_project
+> cd web/themes/custom/cwd_project
+> composer install-project
+```
