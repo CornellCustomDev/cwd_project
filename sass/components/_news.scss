@@ -14,6 +14,14 @@
 // Component Class
 .cwd-news {
 	
+	.date:before {
+		content: '';
+		background: #b31b1b;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 0.2em 0.2em 0 0;
+	}
 	
 	// Container Class Options ---------------------------------
 	
@@ -24,6 +32,16 @@
 	
 	// .tiles
 	&.tiles {
+		
+	}
+	
+	// .full
+	&.full {
+		
+		.date:before {
+			width: 11px;
+			height: 11px;
+		}
 		
 	}
 	

@@ -377,6 +377,10 @@
 					@include text-decoration-color( rgba(255,255,255,0.5) );
 				}
 				
+				h4, p, div {
+					color: #ccc !important;
+				}
+				
 			}
 			
 		}

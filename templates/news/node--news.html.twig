@@ -1,0 +1,49 @@
+{% extends "node.html.twig" %}
+
+{% block title -%}{% endblock %}
+
+{% block content -%}
+
+  {% set destination_url = url %}
+  {% if node.field_destination_url.value %}
+    {% set destination_url = node.field_destination_url.0.url %}
+  {% endif %}
+
+  <div class="group-image">
+    <a href="{{ destination_url }}">
+    {% if node.field_image.value %}
+      {% set img_url = node.field_image[0].entity.field_media_image.entity.uri.value %}
+      <img src="{{ file_url(img_url|image_style('views_thumbnail_480x480')) }}" alt="">
+    {% else %}
+      <img src="/themes/custom/cwd_base/images/cwd_utilities/photo_placeholder_square.svg" alt="">
+    {% endif %}
+      <div class="overlay">
+        <h3>
+          <span class="deco">{{ label }}</span>
+        </h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="group-fields">
+    <div class="date">
+      {{ content.field_post_date }}
+    </div>
+    <div class="summary">
+      {{ content.field_teaser }}
+    </div>
+
+  {% if node.field_tags.value -%}
+    <h4 class="sr-only">Tags</h4>
+    <div class="metadata-set">
+    {% for term in node.field_tags -%}
+      <div class="field">
+        {% set term_url = path('entity.taxonomy_term.canonical', {'taxonomy_term': term.entity.tid.value}) %}
+        <a href="{{ term_url }}"><span class="deco">{{ term.entity.name.value }}</span></a>
+      </div>
+    {%- endfor %}
+    </div>
+  {%- endif %}
+  </div>
+
+{% endblock %}

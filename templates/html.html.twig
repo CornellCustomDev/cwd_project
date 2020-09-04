@@ -1,0 +1,124 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain one or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    is_error_page ? 'error-page',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+    not root_path ? 'home' : 'secondary-page',
+    'cu-seal',
+    'cu-gray',
+    root_path ? 'sidebar',
+    root_path ? 'sidebar-right',
+    root_path ? 'sidebar-tint',
+    root_path ? 'sidebar-tint-fade',
+    root_path ? 'sidebar-tint-edge',
+    node.field_banner_image[0].entity.field_media_image.entity.uri.value ? 'custom-banner'
+  ]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head-placeholder token="{{ placeholder_token|raw }}">
+  <title>{{ head_title|safe_join(' | ') }}</title>
+  <css-placeholder token="{{ placeholder_token|raw }}">
+  <js-placeholder token="{{ placeholder_token|raw }}">
+</head>
+<body{{ attributes.addClass(body_classes) }}>
+
+  <div id="skipnav"><a href="#main">{{ 'Skip to main content'|t }}</a></div>
+
+  <div id="cu-search" class="cu-search">
+    <div class="container-fluid">
+      <form id="cu-search-form" tabindex="-1" role="search" action="//cornell.edu/search/">
+        <label for="cu-search-query" class="sr-only">Search:</label>
+        <input type="text" id="cu-search-query" name="q" value="" size="30">
+        <button name="btnG" id="cu-search-submit" type="submit" value="go"><span class="sr-only">Submit Search</span></button>
+
+        <fieldset class="search-filters" role="radiogroup">
+          <legend class="sr-only">Search Filters</legend>
+          <input type="radio" id="cu-search-filter1" name="sitesearch" value="thissite" checked="checked">
+          <label for="cu-search-filter1"><span class="sr-only">Search </span>This Site</label>
+          <input type="radio" id="cu-search-filter2" name="sitesearch" value="cornell">
+          <label for="cu-search-filter2"><span class="sr-only">Search </span>Cornell</label>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+{% if node.field_banner_image[0].entity.field_media_image.entity.uri.value is not null %}
+  <div class="band" id="super-header" style="background-image: url({{ file_url(node.field_banner_image[0].entity.field_media_image.entity.uri.value) }})">
+{% else %}
+  <div class="band" id="super-header">
+{% endif %}
+    <header id="cu-header">
+      <div class="cu45-helper"></div>
+      <div class="container-fluid cu-brand">
+        <h1 class="cu-logo"><a href="https://www.cornell.edu"><img class="sr-only" src="{{ base_path ~ directory }}/images/cornell/bold_cornell_logo_simple_b31b1b.svg" alt="Cornell University" width="245" height="62"></a></h1>
+        <div class="cu-unit">
+          {% if is_front -%}
+            <h2>{{ site_name }}</h2>
+            {% if site_slogan is not empty -%}
+            <h3 class="sans">{{ site_slogan }}</h3>
+            {% endif -%}
+          {% else -%}
+            <h2><a href="{{ base_path }}">{{ site_name }}</a></h2>
+            <h3 class="sans"><a href="{{ section_path }}">{{ section_title }}</a></h3>
+          {% endif -%}
+        </div>
+        <div class="buttons">
+          <button class="mobile-button" id="mobile-nav">Main Menu</button>
+          <button class="mobile-button" id="cu-search-button">Toggle Search Form</button>
+          {{ page.nav_utility }}
+        </div>
+      </div>
+    </header>
+
+    <header id="site-header">
+      {{ page.nav_main }}
+    </header>
+
+  {% if is_front -%}
+    <div class="band slider-container">
+      <div class="container-fluid">
+        <div id="slider-caption" class="slider-caption"></div>
+      </div>
+    </div>
+  {% endif -%}
+  </div>
+
+  {{ page_top }}
+  {{ page }}
+  {{ page_bottom }}
+
+  <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  <!-- Cornell Emergency banner  -->
+  <script src="https://embanner.univcomm.cornell.edu/OWC-emergency-banner.js" type="text/javascript" async></script>
+</body>
+</html>

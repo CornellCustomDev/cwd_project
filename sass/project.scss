@@ -26,7 +26,266 @@ $project-color-button-active: $cwd-color-button-active; // text button :active c
 @import "components/utility";
 @import "components/basic";
 @import "components/events";
-//@import "components/news";
-//@import "components/people";
+@import "components/news";
+//@import "components/people"; // NYI
 
+
+
+/* Band Accent Color */
+.band.accent1 {
+	background: #f2f2f2;
+}
+
+/* Super Header (with support for homepage slider and secondary page banners) */
+#super-header {
+	position: relative;
+	background: #444 50% 50% no-repeat;
+	background-size: cover;
+	
+	#cu-header { 
+		position: relative;
+		z-index: 6;
+		background: -moz-linear-gradient(top, rgba(34,34,34,0.7) 0%, rgba(34,34,34,0.5) 100%) !important;
+		background: -webkit-linear-gradient(top, rgba(34,34,34,0.7) 0%,rgba(34,34,34,0.5) 100%) !important;
+		background: linear-gradient(to bottom, rgba(34,34,34,0.7) 0%,rgba(34,34,34,0.5) 100%) !important;
+	}
+	#site-header {
+		position: relative;
+		z-index: 6;
+		background: rgba(34,34,34,0.5) !important;
+	}
+}
+.home #super-header {
+	min-height: 320px;
+	max-height: 90vh;
+	height: 50vw;
+	
+	@media (min-width: 768px) {
+		min-height: 480px;
+	}
+	@media (min-width: 1080px) {
+		min-height: 640px;
+	}
+	
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 4;
+		background: -moz-linear-gradient(top, rgba(28,33,38,0.6) 0%, rgba(28,33,38,0.8) 100%);
+		background: -webkit-linear-gradient(top, rgba(28,33,38,0.6) 0%,rgba(28,33,38,0.8) 100%);
+		background: linear-gradient(to bottom, rgba(28,33,38,0.6) 0%,rgba(28,33,38,0.8) 100%);
+		
+		@media (min-width: 768px) {
+			top: 40%;
+			background: -moz-linear-gradient(top, rgba(28,33,38,0) 0%, rgba(28,33,38,0.9) 100%);
+			background: -webkit-linear-gradient(top, rgba(28,33,38,0) 0%,rgba(28,33,38,0.9) 100%);
+			background: linear-gradient(to bottom, rgba(28,33,38,0) 0%,rgba(28,33,38,0.9) 100%);
+		}
+	}
+	
+	#cu-header { 
+		background: none !important;
+		
+		@media (min-width: 768px) {
+			background: -moz-linear-gradient(top, rgba(34,34,34,0.9) 0%, rgba(34,34,34,0.6) 100%) !important;
+			background: -webkit-linear-gradient(top, rgba(34,34,34,0.9) 0%,rgba(34,34,34,0.6) 100%) !important;
+			background: linear-gradient(to bottom, rgba(34,34,34,0.9) 0%,rgba(34,34,34,0.6) 100%) !important;
+		}
+	}
+	#site-header {
+		background: rgba(34,34,34,0.6) !important;
+	}
+	.slide-buffer {
+		background-position: 50% 0;
+		
+		@media (min-width: 768px) {
+			background-position: 50% 15%;
+		}
+	}
+	.slider-container {
+		z-index: 5;
+		position: absolute;
+		top: 64%;
+		bottom: 0;
+		
+		@media (min-width: 768px) {
+			top: auto;
+			bottom: 8%;
+		}
+		
+		.caption-inner {
+			left: 42px !important;
+			right: 42px;
+			top: 0 !important;
+			bottom: 0;
+			@extend .vertical-align;
+			
+			@media (min-width: 768px) {
+				left: 0 !important;
+				right: auto;
+				top: auto !important;
+				padding: 0;
+				bottom: 80px;
+				background: none;
+				width: 50%;
+				max-width: 600px;
+				
+				// uncomment the lines below for right-aligned headlines
+				/*
+				bottom: 0; 
+				left: auto !important;
+				right: 0;
+				max-width: 50%;
+				text-align: right;
+				*/
+			}
+			
+			.caption-focus {
+				width: 100%;
+			}
+		}
+		.slider-caption {
+			padding: 0 15px;
+			text-align: center;
+			background: none;
+			
+			@media (min-width: 768px) {
+				position: relative;
+				padding: 0 30px;
+				text-align: left;
+			}
+			@media (min-width: 992px) {
+				padding: 0 60px;
+			}
+			
+			h2 {
+				font-size: 15px;
+				font-weight: 500;
+				line-height: 1.35;
+				margin-bottom: 0.4em;
+	
+				@media (min-width: 768px) {
+					font-weight: 400;
+					font-size: 28px;
+				}
+				@media (min-width: 1200px) {
+					font-size: 34px;
+				}
+	
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			p {
+				font-size: 13px;
+				text-transform: none;
+	
+				@media (min-width: 768px) {
+					font-size: 16px;
+				}
+				@media (min-width: 1200px) {
+					font-size: 18px;
+				}
+			}
+		}
+		.campaign-nav {
+			left: 0 !important;
+			
+			@media (max-width: 767px) {
+				width: 100% !important;
+				left: 0 !important;
+				right: 0 !important;
+				top: 48%;
+				top: calc(50% - 26px);
+				
+				.next-prev {
+					
+					a {
+						border: 0;
+						width: 26px;
+						height: 52px;
+						position: absolute;
+						margin: 0 3px;
+						
+						.fa {
+							line-height: 52px;
+						}
+					}
+					.prev {
+						padding-right: 1px;
+					}
+					.next {						
+						padding-left: 1px;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Main Navigation (Desktop) */
+@media (min-width: 992px) {
+	
+	#main-navigation {
+		padding: 14px 0;
+		background: #2e2e2e;
+		background: -moz-linear-gradient(left, rgba(34,34,34,0) 5%, rgba(34,34,34,0.6) 25%, rgba(34,34,34,0.6) 75%, rgba(34,34,34,0) 95%);
+		background: -webkit-linear-gradient(left, rgba(34,34,34,0) 5%,rgba(34,34,34,0.6) 25%,rgba(34,34,34,0.6) 75%,rgba(34,34,34,0) 95%);
+		background: linear-gradient(to right, rgba(34,34,34,0) 5%,rgba(34,34,34,0.6) 25%,rgba(34,34,34,0.6) 75%,rgba(34,34,34,0) 95%);
+		
+		li {
+			line-height: 1;
+			
+			a {
+				border-radius: 3px;
+				padding: 11px 20px;
+				white-space: nowrap;
+			}
+			&.parent:hover > a {
+				border-radius: 3px 3px 0 0;
+			}
+			li {
+				border: 0;
+				font-size: 14px;
+				
+				a {
+					border-radius: 0;
+					padding: 12px 20px;
+				}
+			}
+			ul {
+				background: #444;
+			}
+		}
+		& > .container-fluid > ul {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-flex-wrap: nowrap;
+			-ms-flex-wrap: nowrap;
+			flex-wrap: nowrap;
+			-webkit-box-pack: justify;
+			-webkit-justify-content: space-between;
+			-moz-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+		}
+		& > .container-fluid > ul > li > a.is-active {
+			background: #b31b1b;
+		}
+		& > .container-fluid > ul > li > a.is-active:hover {
+			background: #c71d1d;
+		}
+		.fa-caret-down {
+			margin-right: -0.3em;
+		}
+	}
+}
 
