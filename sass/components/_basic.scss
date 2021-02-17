@@ -120,7 +120,6 @@
 		}
 	
 	}
-	
 	.header-with-button {
 		margin-bottom: 30px;
 	}
@@ -156,7 +155,30 @@
 			}
 		}
 	}
-	
+	.badge {
+		position: absolute;
+		color: #fff;
+		font-size: 14px;
+		padding: 0.2em 0.7em;
+		background: rgba(0,0,0,0.7);
+		top: 10px;
+		left: 10px;
+		pointer-events: none;
+		
+		@media (min-width: 992px) {
+			left: 15px;
+		}
+		@media (min-width: 1200px) {
+			left: 20px;
+			padding: 0.3em 1em;
+		}
+	}
+	.relative > .badge {
+		top: auto;
+		left: auto;
+		bottom: 0;
+		right: 0;
+	}
 	
 	
 	
@@ -264,10 +286,25 @@
 				z-index: 2;
 				pointer-events: none;
 			}
+			
+			.badge {
+				top: 0;
+				left: 0;
+			}
+			.relative > .badge {
+				top: auto;
+				left: auto;
+				bottom: 0;
+				right: 0;
+			}
 		}
 		
 		&.max-1 {
-			// NYI
+			@media (min-width: 768px) {
+				.card {
+					width: 100%;
+				}
+			}
 		}
 		&.max-2 {
 			@media (min-width: 1200px) {
@@ -324,6 +361,66 @@
 				}
 			}
 		}
+		&.one-plus-max-3 {
+			@media (min-width: 768px) {
+				.card {
+					width: 33.33333%;
+					
+					h3 {
+						font-size: 16px;
+					}
+					
+					&:first-of-type {
+						width: 100%;
+						
+						h3 {
+							font-size: 22px;
+						}
+					}
+				}
+			}
+			@media (min-width: 992px) {
+				.card:first-of-type {
+					
+					.group-image {
+						display: initial;
+						position: static;
+						
+						a {
+							background: none;
+							box-shadow: none;
+						}
+						img {
+							width: 50% !important;
+							float: left;
+							margin-right: 3%;
+						}
+						.relative {
+							width: 50% !important;
+							float: left;
+							margin-right: 3%;
+							
+							img {
+								width: 100% !important;
+								margin: 0;
+							}
+						}
+					}
+					.group-fields {
+						width: 47% !important;
+					}	
+				}
+			}
+			@media (min-width: 1200px) {
+				.card:first-of-type {
+					.summary {
+						margin-top: 1em;
+						font-size: 18px;
+					}
+				}
+			}
+		}
+		
 		&.no-overlay {
 			
 			.group-image {
@@ -379,6 +476,10 @@
 				
 				h4, p, div {
 					color: #ccc !important;
+					
+					&.badge {
+						color: #fff !important;
+					}
 				}
 				
 			}
@@ -464,6 +565,7 @@
 			}
 			.card {
 				padding: 0 !important;
+				margin-bottom: 0;
 			}
 		}
 	}

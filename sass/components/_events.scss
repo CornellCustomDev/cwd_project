@@ -13,6 +13,7 @@
 
 // Component Class
 .cwd-events {
+	$scope: &;
 	
 	.location {
 		font-family: $project-font-family-sans-alt;
@@ -265,6 +266,112 @@
 				width: 100% !important;
 				margin-top: 0;
 			}
+		}
+	}
+	
+	// .compact (currently supports no-image mode only)
+	&.compact {
+		.group-noimage {
+			a {
+				@extend .flex;
+				transition: background 0.15s, box-shadow 0.15s;
+				
+				&:hover {
+					background: rgba(0,0,0,0.04);
+					box-shadow: 0 0 0 10px rgba(0,0,0,0.04);
+				}
+			}
+			time {
+				@extend .vertical-align;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: row;
+				-moz-box-orient: horizontal;
+				-moz-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				position: relative;
+				width: auto;
+				padding: 0;
+				margin-right: 0;
+				background: none !important;
+		
+				.month, .day {
+					background: rgba(0,0,0,0.05);
+					color: #2e2e2e;
+					width: auto;
+					font-family: $project-font-family-serif-alt;
+					font-size: 21px;
+					font-weight: 400;
+					line-height: 1;
+					text-transform: none;
+					padding: 0.5em 0 0.5em 0.8em;
+					transition: background 0.15s, color 0.15s;
+					
+					.secondary & {
+						@media (min-width: 768px) and (max-width: 991px) {
+							font-size: 18px;
+						}
+					}
+				}
+				.day {
+					padding: 0.5em 0.8em 0.5em 0.3em;
+					margin-right: 1em;
+				}
+				.time {
+					font-size: 16px;
+					white-space: nowrap;
+					color: #5e5e5e;
+					transition: color 0.15s;
+					position: absolute;
+					left: 110px;
+					
+					.secondary & {
+						@media (min-width: 768px) and (max-width: 991px) {
+							font-size: 13px;
+							left: 90px;
+						}
+						@media (min-width: 992px) and (max-width: 1200px) {
+							font-size: 13px;
+						}
+					}
+					
+					&:before {
+						@extend .icon-zmdi;
+						content: '\f337';
+						font-size: 18px;
+						position: relative;
+						top: 1px;
+						color: #b31b1b;
+						margin-right: 0.25em;
+						transition: color 0.15s;
+					}
+				}
+				@at-root #{$scope}.compact .group-noimage a:hover {
+					.month, .day {
+						background: rgba(0,0,0,0.08);
+						color: #000;
+					}
+					.time, .time:before {
+						color: #000;
+					}
+				}
+			}
+			h3, & + .group-fields {
+				clear: both;
+				float: none;
+				width: 100% !important;
+			}
+			h3 {
+				font-family: $project-font-family-sans-alt;
+				font-size: 16px;
+				line-height: 1.5;
+				margin: 0;
+			}
+		}
+		.location {
+			font-size: 14px;
+			font-weight: 400;
 		}
 	}
 	

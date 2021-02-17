@@ -1,4 +1,6 @@
 // Set project fonts, link and button colors to the CWD defaults if not set in the main project stylesheet 
+$project-font-family-sans-serif: $cwd-font-family-sans-serif !default; // base sans font
+$project-font-family-serif: $cwd-font-family-serif !default; // base serif font
 $project-font-family-sans-alt: $cwd-font-family-sans-alt !default; // alternate/accent sans font
 $project-font-family-sans-ui: $cwd-font-family-sans-ui !default; // UI sans font (might be used for extra precision in certain interface elements)
 $project-font-family-serif-alt: $cwd-font-family-serif-alt !default; // alternate/accent serif font

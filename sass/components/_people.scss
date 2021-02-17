@@ -11,11 +11,122 @@
 // @media (min-width: 1400px) - maximum content width begins
 
 
+// #main {
+// 	background: #f7f7f7 !important;
+// }
+
 // Component Class
 .cwd-people {
 	
+	.subheading-secondary {
+		font-size: 11px;
+		color: #707070;
+	}
+	.affiliation:before {
+		@extend .icon-zmdi;
+		content: '\f112' !important;
+		margin-right: 0.3em;
+	}
+	ul.inline {
+		
+		.affiliation {
+			padding-left: 0.5em;
+			margin-left: 0.5em;
+			//border-left: 1px solid #afcdee;
+		}
+	}
+	.subheading-secondary + ul.inline {
+		margin-top: 1.5em;
+	}
+// 	.link-email:before {
+// 		@extend .icon-zmdi;
+// 		content: '\f207';
+// 		font-size: 14px;
+// 		margin-right: 0.3em;
+// 		position: relative;
+// 		top: 1px;
+// 	}
+// 	.link-email:after {
+// 		@extend .icon-zmdi;
+// 		content: '\f193';
+// 		font-size: 14px;
+// 		margin-left: 0.3em;
+// 		transform: scaleX(-1);
+// 	}
+	.link-email:before {
+		@extend .icon-zmdi;
+		content: '\f193';
+		font-size: 14px;
+		margin-right: 0.3em;
+		position: relative;
+		top: 1px;
+		transform: scaleX(-1);
+	}
+	
+	
 	
 	// Container Class Options ---------------------------------
+	
+	// .full
+	&.full {
+		
+		.intro {
+			margin-bottom: 0.25em;
+		}
+		.affiliation {
+			font-family: $project-font-family-serif-alt;
+			//font-size: 128.9%;
+			color: #000;
+			
+			&:before {
+				color: #b31b1b;
+				margin-right: 0.4em;
+			}
+		}
+		.category {
+			font-size: 14px;
+		}
+		figure + .category {
+			margin-top: -0.5em;
+		}
+		.affiliations-and-roles p {
+			line-height: 1.4;
+		}
+		
+		ul.group-members > li {
+			padding-left: 1.4em;
+			margin-bottom: 0.25em;
+			
+			&:before {
+				@extend .icon-zmdi;
+				content: '\f207';
+				font-size: 114.3%;
+				top: 0.2em;
+				left: 1px;
+			}
+		}
+		
+		.content-sidebar {
+			figure {
+				max-width: 480px;
+			}
+			
+			h2 {
+				color: #000 !important;
+				font-size: 20px;
+				
+				@media (min-width: 992px) {
+					font-size: 22px;
+				}
+			}
+		}
+		
+		.field-email + .field-location, 
+		.field-phone + .field-location {
+			margin-top: 1em;
+		}
+		
+	}
 	
 	// .animate
 	&.animate {
@@ -27,9 +138,52 @@
 		
 	}
 	
+	// .fun (a playful photo treatment)
+	&.fun {
+		
+		.card {
+			img {
+				transform: rotate(-3deg) translateX(-2%);
+				border: 4px solid #fff;
+				border-bottom-width: 12px;
+				box-shadow: 0 0 12px rgba(0,0,0,0.1);
+			}
+			&:nth-child(even) {
+				img {
+					transform: rotate(3deg) translateX(-2%);
+				}
+			}
+		}
+		
+		&.tiles { // .fun + .tiles
+			.card {
+				img {
+					transform: none;
+					border: 0;
+					box-shadow: none;
+				}
+				.group-image {
+					transform: rotate(-3deg) translateY(-2%);
+					border: 4px solid #fff;
+					border-bottom-width: 12px;
+					box-shadow: 0 0 12px rgba(0,0,0,0.1);
+				}
+				&:nth-child(even) {
+					.group-image {
+						transform: rotate(3deg) translateY(-2%);
+					}
+				}
+			}
+		}
+	}
+	
 }
 
 // .dark (for display over dark backgrounds)
 .dark .cwd-people {
 	
+	.subheading-secondary {
+		color: #bbb;
+	}
 }
+

@@ -21,7 +21,7 @@ $project-font-family-sans-ui: $cornell-font-family-sans-serif;
 $project-font-family-serif-alt: $cornell-font-family-serif;
 
 // Freight Sans Pro
-body, 
+body, .base-font, 
 table, table caption, 
 #main form label, 
 #main-navigation li, 
@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6,
 .breadcrumb, 
 .secondary-navigation ul li, .secondary-navigation ul ul li, .menu-block-title + .secondary-navigation ul li, .secondary .menu-block-title, 
 .cwd-component .subheading h4, .cwd-component h4.subheading, .cwd-component .subheading h4.sans, .cwd-component h4.subheading.sans, 
+.cwd-component .subheading.subheading-secondary h4, .cwd-component h4.subheading.subheading-secondary, 
 blockquote.offset, blockquote.impact, 
 body > footer a.link-block, #body-footer a.link-block, 
 .cu-search label, 
@@ -91,7 +92,8 @@ table,
 // Body Text (16px -> 17px)
 body > footer, #body-footer,
 #main .secondary, 
-#main form .option-label {
+#main form .option-label, 
+.content-sidebar {
 	font-size: 16px;
 	
 	@media (min-width: 992px) {
@@ -118,7 +120,10 @@ article footer,
 
 // Small Print (14px uniform)
 .cwd-component .metadata-set, 
-.cwd-component .date {
+.cwd-component .date, 
+.cwd-component .subheading.subheading-secondary h4, 
+.cwd-component h4.subheading.subheading-secondary, 
+.cwd-component ul.inline {
 	font-size: 14px;
 }
 
