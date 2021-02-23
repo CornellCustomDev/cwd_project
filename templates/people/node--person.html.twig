@@ -1,0 +1,51 @@
+{% extends "node.html.twig" %}
+
+{% block title -%}{% endblock %}
+
+{% block content -%}
+
+<div class="cwd-component cwd-basic cwd-people">
+
+  {% set destination_url = url %}
+  {%- if node.field_destination_url.value -%}
+    {% set destination_url = node.field_destination_url.0.url %}
+  {%- endif -%}
+  {% set image_src = '/themes/custom/cwd_base/images/cwd_utilities/photo_placeholder_square.svg' %}
+  {% if node.field_image.0.value -%}
+    {% set image_src = file_url(node.field_image[0].entity.field_media_image.entity.uri.value | image_style('medium_square')) %}
+  {%- endif %}
+
+  <div class="group-image">
+    <a href="{{ destination_url }}">
+      <img src="{{ image_src }}" alt="">
+      <div class="overlay">
+        <h3>
+          <span class="deco">{{- label -}}</span>
+        </h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="group-fields">
+
+<ul class="custom inline no-bullet">
+  <li class="category">
+    <h4 class="sr-only">Job Category</h4>
+    <span class="field-emphasize">Dog</span>
+    <span class="field-emphasize">Visionary</span>
+  </li>
+  <li class="email">
+    {%- if node.field_email.value -%}
+      {% set email_markup = "Email<span class=\"sr-only\"> " ~ node.title.value ~ "</span>" %}
+      {% set email_link = "mailto:" ~ node.field_email.value %}
+      {{ link(email_markup|t, email_link, { 'class':['link-email']}) }}
+    {%- endif -%}
+  </li>
+</ul>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

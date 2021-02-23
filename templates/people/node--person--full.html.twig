@@ -1,0 +1,23 @@
+{% extends "node.html.twig" %}
+{% block content %}
+
+<div class="cwd-component cwd-basic cwd-people">
+
+  {% if node.field_image.value %}
+  <figure class="high-margin">
+    {{ content.field_image }}
+  </figure>
+  {% endif %}
+
+  {% if node.field_destination_url.value %}
+  <div class="field-destination high-margin">
+    <p><strong class="tutorial note">Note:</strong> This person profile features content from another page. <a href="{{ node.field_destination_url.0.url }}">View the featured content</a> for this person.</p>
+  </div>
+  {% endif %}
+
+  {{ node.body|view('full') }}
+
+  {{ content|without('body','field_destination_url','field_image') }}
+
+</div>
+{% endblock %}
