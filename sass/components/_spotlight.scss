@@ -1,0 +1,53 @@
+// CWD Component: Spotlight
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+
+// Component Class
+.cwd-spotlight {
+	
+	.date:before {
+		content: '';
+		background: #b31b1b;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 0.2em 0.2em 0 0;
+	}
+	
+	// Container Class Options ---------------------------------
+	
+	// .animate
+	&.animate {
+		
+	}
+	
+	// .tiles
+	&.tiles {
+		
+	}
+	
+	// .full
+	&.full {
+		
+		.date:before {
+			width: 11px;
+			height: 11px;
+		}
+		
+	}
+	
+}
+
+// .dark (for display over dark backgrounds)
+.dark .cwd-spotlight {
+	
+}

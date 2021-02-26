@@ -20,7 +20,7 @@ fieldset.semantic legend, #main fieldset.semantic legend, fieldset fieldset lege
 form.webform-submission-form fieldset legend, #main form.webform-submission-form fieldset legend,
 #main form input, #main form input[type='submit'], #main form input[type='reset'], #main form input[type='button'], #main form textarea,
 a.link-button,
-.slider-caption h2, .slider-caption p {
+.slider-caption h2, .slider-caption p, #popup .caption {
   font-family: "freight-sans-pro", sans-serif; }
 
 .serif,
@@ -411,6 +411,30 @@ a.link-button {
       margin-left: -20px;
       margin-right: -20px; } }
 
+.cwd-basic .card-section {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 10px;
+  margin: 40px auto 0; }
+  @media (min-width: 768px) {
+    .cwd-basic .card-section {
+      max-width: none;
+      margin: 40px 0 0; } }
+  @media (min-width: 992px) {
+    .cwd-basic .card-section {
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (min-width: 1200px) {
+    .cwd-basic .card-section {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  .cwd-basic .card-section:first-of-type {
+    margin-top: 0; }
+  .cwd-basic .card-section h2, .cwd-basic .card-section h3, .cwd-basic .card-section h4 {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 4px solid #b31b1b;
+    padding: 0 0 2px 10px; }
+
 .cwd-basic .card {
   width: 100%;
   max-width: 500px;
@@ -503,28 +527,40 @@ a.link-button {
       border-color: #aaa;
       background: rgba(0, 0, 0, 0.08); }
 
+.cwd-basic .group-image {
+  position: relative; }
+
 .cwd-basic .badge {
   position: absolute;
   color: #fff;
   font-size: 14px;
   padding: 0.2em 0.7em;
   background: rgba(0, 0, 0, 0.7);
-  top: 10px;
-  left: 10px;
-  pointer-events: none; }
-  @media (min-width: 992px) {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  @media (min-width: 768px) {
     .cwd-basic .badge {
-      left: 15px; } }
+      font-size: 12px;
+      max-width: 20%; } }
   @media (min-width: 1200px) {
     .cwd-basic .badge {
-      left: 20px;
-      padding: 0.3em 1em; } }
+      font-size: 14px;
+      padding: 0.3em 0.9em; } }
 
 .cwd-basic .relative > .badge {
   top: auto;
   left: auto;
   bottom: 0;
   right: 0; }
+
+@media (min-width: 768px) {
+  .cwd-basic.tiles .card-section {
+    margin-top: 10px;
+    margin-bottom: 20px; } }
 
 @media (min-width: 768px) {
   .cwd-basic.tiles .card {
@@ -608,6 +644,7 @@ a.link-button {
     z-index: 2;
     pointer-events: none; }
   .cwd-basic.tiles .group-image .badge {
+    max-width: 100%;
     top: 0;
     left: 0; }
   .cwd-basic.tiles .group-image .relative > .badge {
