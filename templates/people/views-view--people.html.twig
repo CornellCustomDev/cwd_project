@@ -1,0 +1,10 @@
+{#
+/**
+ * Add view wrapper classes.
+ */
+#}
+
+{% set view_add_classes = ['cwd-people', 'tiles'] %}
+{% include "@cwd_base/views-view.html.twig" with {
+  'view_add_classes': view_add_classes,
+} %}
