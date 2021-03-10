@@ -375,7 +375,7 @@ a.link-button {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-zmdi:before, .cwd-events.compact .group-noimage time .time:before, .icon-zmdi:after {
+.icon-zmdi:before, .cwd-events.compact .group-noimage time .time:before, .cwd-people .affiliation:before, .cwd-people .link-email:before, .cwd-people.full ul.group-members > li:before, .icon-zmdi:after {
   display: inline-block;
   font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
   font-size: inherit;
@@ -734,9 +734,9 @@ a.link-button {
 .cwd-basic.tiles.no-overlay .group-image .deco, .cwd-basic.tiles.no-overlay .group-image h3 {
   color: #1176ac;
   text-decoration: underline;
-  -moz-text-decoration-color: rgba(17, 121, 177, 0.5);
-  -webkit-text-decoration-color: rgba(17, 121, 177, 0.5);
-  text-decoration-color: rgba(17, 121, 177, 0.5); }
+  -moz-text-decoration-color: rgba(17, 118, 172, 0.5);
+  -webkit-text-decoration-color: rgba(17, 118, 172, 0.5);
+  text-decoration-color: rgba(17, 118, 172, 0.5); }
 
 .cwd-basic.tiles.no-overlay .group-image h3.designer, .cwd-basic.tiles.no-overlay .group-image h3.designer .deco {
   text-decoration: none;
@@ -1146,6 +1146,97 @@ a.link-button {
 .cwd-news.full .date:before {
   width: 11px;
   height: 11px; }
+
+.cwd-people .subheading-secondary {
+  font-size: 11px;
+  color: #707070; }
+
+.cwd-people .affiliation:before {
+  content: '\f112' !important;
+  margin-right: 0.3em; }
+
+.cwd-people ul.inline .affiliation {
+  padding-left: 0.5em;
+  margin-left: 0.5em; }
+
+.cwd-people .subheading-secondary + ul.inline {
+  margin-top: 1.5em; }
+
+.cwd-people .link-email:before {
+  content: '\f193';
+  font-size: 14px;
+  margin-right: 0.3em;
+  position: relative;
+  top: 1px;
+  transform: scaleX(-1); }
+
+.cwd-people.full .intro {
+  margin-bottom: 0.25em; }
+
+.cwd-people.full .affiliation {
+  font-family: "freight-text-pro", serif;
+  color: #000; }
+  .cwd-people.full .affiliation:before {
+    color: #b31b1b;
+    margin-right: 0.4em; }
+
+.cwd-people.full .category {
+  font-size: 14px; }
+
+.cwd-people.full figure + .category {
+  margin-top: -0.5em; }
+
+.cwd-people.full .affiliations-and-roles p {
+  line-height: 1.4; }
+
+.cwd-people.full ul.group-members > li {
+  padding-left: 1.4em;
+  margin-bottom: 0.25em; }
+  .cwd-people.full ul.group-members > li:before {
+    content: '\f207';
+    font-size: 114.3%;
+    top: 0.2em;
+    left: 1px; }
+
+.cwd-people.full .content-sidebar figure {
+  max-width: 480px; }
+
+.cwd-people.full .content-sidebar h2 {
+  color: #000 !important;
+  font-size: 20px; }
+  @media (min-width: 992px) {
+    .cwd-people.full .content-sidebar h2 {
+      font-size: 22px; } }
+
+.cwd-people.full .field-email + .field-location,
+.cwd-people.full .field-phone + .field-location {
+  margin-top: 1em; }
+
+.cwd-people.fun .card img {
+  transform: rotate(-3deg) translateX(-2%);
+  border: 4px solid #fff;
+  border-bottom-width: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); }
+
+.cwd-people.fun .card:nth-child(even) img {
+  transform: rotate(3deg) translateX(-2%); }
+
+.cwd-people.fun.tiles .card img {
+  transform: none;
+  border: 0;
+  box-shadow: none; }
+
+.cwd-people.fun.tiles .card .group-image {
+  transform: rotate(-3deg) translateY(-2%);
+  border: 4px solid #fff;
+  border-bottom-width: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); }
+
+.cwd-people.fun.tiles .card:nth-child(even) .group-image {
+  transform: rotate(3deg) translateY(-2%); }
+
+.dark .cwd-people .subheading-secondary {
+  color: #bbb; }
 
 /* Band Accent Color */
 .band.accent1 {

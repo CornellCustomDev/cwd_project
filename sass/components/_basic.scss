@@ -473,7 +473,7 @@
 				.deco, h3 {
 					color: $project-color-link;
 					text-decoration: underline;
-					@include text-decoration-color( rgba(17,121,177,0.5) );
+					@include text-decoration-color( rgba($project-color-link,0.5) );
 				}
 				h3.designer, h3.designer .deco {
 					text-decoration: none;
