@@ -5,6 +5,12 @@
 #}
 
 {% set view_add_classes = ['cwd-news'] %}
-{% include "@cwd_base/views-view.html.twig" with {
+{% embed "@cwd_base/views-view.html.twig" with {
   'view_add_classes': view_add_classes,
 } %}
+
+{% block view_sr_heading %}
+  {% include "@cwd_base/includes/partial--view-sr-heading.html.twig" %}
+{% endblock %}
+
+{% endembed %}
