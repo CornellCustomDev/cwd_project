@@ -3,15 +3,20 @@
 <div class="cwd-component cwd-basic cwd-people full flex-grid">
 
   <div class="flex-8">
-    {% if node.field_destination_url.value -%}
-    <div class="field-destination high-margin">
-      <p><strong class="tutorial note">Note:</strong> This person profile features content from another page. <a href="{{ node.field_destination_url.0.url }}">View the featured content</a> for this person.</p>
-    </div>
+    {% if node.field_job_title.value -%}
+      <p class="intro job-title">{{ node.field_job_title.value }}</p>
     {% endif %}
+
+    {# TO DO: wouldn't it be fun to turn this into a partial/include, with a variable for the blanks -- i.e. "This ____ features... content</a> for this ____." ?!?!?! #}
+    {% if node.field_destination_url.value -%}
+      <div class="field-destination high-margin">
+        <p><strong class="tutorial note">Note:</strong> This person profile features content from another page. <a href="{{ node.field_destination_url.0.url }}">View the featured content</a> for this person.</p>
+      </div>
+    {% endif %}
+
     <div class="field-body double-margin">
       {{ node.body|view('full') }}
     </div>
-    {{ content|without('body','field_destination_url','field_image','field_email','field_phone') }}
   </div>
 
   <div class="flex-4 content-sidebar">
@@ -30,7 +35,8 @@
         {% if node.field_email.value -%}
           <div class="field-email">
             {%- set email_string = node.field_email.value -%}
-            <a class="link-email" href="mailto:{{ email_string }}"><span class="fa fa-envelope-square"></span><span class="deco">{{ email_string }}</span></a>
+            {%- set email_link = "mailto:" ~ email_string -%}
+            {{ link(email_string|t, email_link, { 'class':['link-email']}) }}
           </div>
         {% endif %}
         {% if node.field_phone.value -%}
@@ -45,41 +51,17 @@
         {% endif %}
       </div>
     {% endif %}
+    {% if node.field_er_person.value -%}
+      {% set members_heading = 'Group members' %}
+      <hr class="invisible">
+      <h2>{{ members_heading }}</h2>
+      <ul class="custom group-members">
+        {% for gm in node.field_er_person %}
+          {%- set gm_url = path('entity.node.canonical', {'node': gm.entity.nid.value}) -%}
+          <li>{{ drupal_link(gm.entity.title.value|t, gm_url) }}</li>
+        {% endfor -%}
+      </ul>
+    {% endif %}
   </div>
-
-{#
-<ul class="custom inline no-bullet">
-  <li class="category">
-    <h4 class="sr-only">Job Category</h4>
-    <span class="field-emphasize">Dog</span>
-    <span class="field-emphasize">Visionary</span>
-  </li>
-  <li class="email">
-    {%- if node.field_email.value -%}
-      {% set email_markup = "Email<span class=\"sr-only\"> " ~ node.title.value ~ "</span>" %}
-      {% set email_link = "mailto:" ~ node.field_email.value %}
-      {{ link(email_markup|t, email_link, { 'class':['link-email']}) }}
-    {%- endif -%}
-  </li>
-</ul>
-
-<ul class="custom inline no-bullet">
-  <li class="category">
-    <h4 class="sr-only">Job Category</h4>
-    <a href="#">Researcher</a>
-    <span class="affiliation">Cornell University</span>
-  </li>
-  <li class="email">
-    <a class="link-email" href="mailto:melissa.hines@cornell.edu">Email<span class="sr-only"> Melissa Hines</span></a>
-  </li>
-<!--
-  <li class="phone">
-    <a class="link-phone" href="tel:+1-607-255-5243">(607) 255-5243</a>
-  </li>
--->
-</ul>
-
- #}
-
 </div>
 {% endblock %}
