@@ -1,10 +1,16 @@
 {#
 /**
- * Add to the view wrapper classes
+ * Add to view wrapper classes.
  */
 #}
 
 {% set view_add_classes = ['cwd-spotlight'] %}
-{% include "@cwd_base/views-view.html.twig" with {
+{% embed "@cwd_base/views-view.html.twig" with {
   'view_add_classes': view_add_classes,
 } %}
+
+{% block view_sr_heading %}
+  {% include "@cwd_base/partials/incl--view-sr-heading.html.twig" %}
+{% endblock %}
+
+{% endembed %}
