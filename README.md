@@ -38,3 +38,18 @@ Usage
 	* If you want it to match the Base Theme, the typography is done in Avenir Next Medium.
 
 8. Remove composer.json from your new theme (no need to keep it).
+
+
+Composer Script
+---------------
+
+Still experimental... does all of the above for you except #7:
+
+```bash
+> export SITE_NAME=[YOUR SITE DESCRIPTIVE NAME]
+> export THEME=[YOUR CUSTOM THEME DIRECTORY NAME]
+> composer require cubear/cwd_project
+> cd web/themes/custom/cwd_project
+> composer install-project
+> composer remove cubear/cwd_project
+```
