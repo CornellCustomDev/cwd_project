@@ -7,6 +7,7 @@ Usage
 -------
 
 1. Grab a copy of this "cwd\_project" folder from the [GitHub repo](https://github.com/CU-CommunityApps/cwd_project).
+  * If your site is a fresh clone of CD Demo, you'll already have cwd_project in `web/themes/custom`.
 
 2. Rename this copy to suit your project. This will effectively be the machine name for your theme (e.g., The College of Ursine Studies at Cornell might be named **cwd\_ursine**.). For consistency, we usually name our folders and files "cwd\_xxxx".
 	* CWD is the legacy name for the web development unit of Custom Development. While it's deprecated now, it's still used in many places, and three letters are more distinctive than two. So for now, I recommend just going with it! 😛
