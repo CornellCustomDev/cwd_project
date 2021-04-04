@@ -51,12 +51,12 @@
         {% endif %}
       </div>
     {% endif %}
-    {% if node.field_er_person.value -%}
+    {% if node.field_person_ref.value -%}
       {% set members_heading = 'Group members' %}
       <hr class="invisible">
       <h2>{{ members_heading }}</h2>
       <ul class="custom group-members">
-        {% for gm in node.field_er_person %}
+        {% for gm in node.field_person_ref %}
           {%- set gm_url = path('entity.node.canonical', {'node': gm.entity.nid.value}) -%}
           <li>{{ drupal_link(gm.entity.title.value|t, gm_url) }}</li>
         {% endfor -%}
