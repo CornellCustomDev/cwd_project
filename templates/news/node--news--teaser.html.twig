@@ -13,7 +13,7 @@
     <a href="{{ destination_url }}">
     {% if node.field_image.value %}
       {% set img_url = node.field_image[0].entity.field_media_image.entity.uri.value %}
-      <img src="{{ file_url(img_url|image_style('views_thumbnail_480x480')) }}" alt="">
+      <img src="{{ file_url(img_url|image_style('medium_square')) }}" alt="">
     {% else %}
       <img src="/themes/custom/cwd_base/images/cwd_utilities/photo_placeholder_square.svg" alt="">
     {% endif %}
