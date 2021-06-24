@@ -72,8 +72,8 @@
     </div>
   </div>
 
-{% if node.field_banner_image[0].entity.field_media_image.entity.uri.value is not null %}
-  <div class="band" id="super-header" style="background-image: url({{ file_url(node.field_banner_image[0].entity.field_media_image.entity.uri.value) }})">
+{% if node.field_banner_image[0].entity.field_media_image.entity.uri.value %}
+  <div class="band" id="super-header" style="background-image: url({{ file_url(node.field_banner_image[0].entity.field_media_image.entity.uri.value | image_style('page_banner_image')) }})">
 {% else %}
   <div class="band" id="super-header">
 {% endif %}

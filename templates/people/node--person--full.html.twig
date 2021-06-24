@@ -1,0 +1,67 @@
+{% extends "node.html.twig" %}
+{% block content %}
+<div class="cwd-component cwd-basic cwd-people full flex-grid">
+
+  <div class="flex-8">
+    {% if node.field_job_title.value -%}
+      <p class="intro job-title">{{ node.field_job_title.value }}</p>
+    {% endif %}
+
+    {# TO DO: wouldn't it be fun to turn this into a partial/include, with a variable for the blanks -- i.e. "This ____ features... content</a> for this ____." ?!?!?! #}
+    {% if node.field_destination_url.value -%}
+      <div class="field-destination high-margin">
+        <p><strong class="tutorial note">Note:</strong> This person profile features content from another page. <a href="{{ node.field_destination_url.0.url }}">View the featured content</a> for this person.</p>
+      </div>
+    {% endif %}
+
+    <div class="field-body double-margin">
+      {{ node.body|view('full') }}
+    </div>
+  </div>
+
+  <div class="flex-4 content-sidebar">
+    {% if node.field_image.0.value -%}
+      {% set image_mid = node.field_image.0.entity.mid.value %}
+      <figure>
+        {{ drupal_entity('media', image_mid, 'medium_sized') }}
+      </figure>
+    {% else -%}
+      <figure><img src="/themes/custom/cwd_base/images/cwd_utilities/photo_placeholder_square.svg" alt=""></figure>
+    {% endif %}
+
+    {% if node.field_email.value or node.field_phone.value or node.field_location.value -%}
+      <h2>Contact</h2>
+      <div class="contact double-margin">
+        {% if node.field_email.value -%}
+          <div class="field-email">
+            {%- set email_string = node.field_email.value -%}
+            {%- set email_link = "mailto:" ~ email_string -%}
+            {{ link(email_string|t, email_link, { 'class':['link-email']}) }}
+          </div>
+        {% endif %}
+        {% if node.field_phone.value -%}
+          <div class="field-phone">
+            {%- set phone_string = node.field_phone.value -%}
+            <a class="link-phone" href="tel:+1-{{ phone_string }}"><span class="fa fa-phone-square"></span><span class="deco">{{ phone_string }}</span></a>
+          </div>
+        {% endif %}
+        {# TO DO: maybe replace plain text field_location with formatted text field...? #}
+        {% if node.field_location.value -%}
+          <div class="field-location">{{- node.field_location.value -}}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if node.field_person_ref.value -%}
+      {% set members_heading = 'Group members' %}
+      <hr class="invisible">
+      <h2>{{ members_heading }}</h2>
+      <ul class="custom group-members">
+        {% for gm in node.field_person_ref %}
+          {%- set gm_url = path('entity.node.canonical', {'node': gm.entity.nid.value}) -%}
+          <li>{{ drupal_link(gm.entity.title.value|t, gm_url) }}</li>
+        {% endfor -%}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
