@@ -8,6 +8,8 @@ See also: [CD Demo](https://github.com/CU-CommunityApps/cd-demo) - a Drupal star
 Usage
 -------
 
+### Create a child theme from cwd_project
+
 1. Grab a copy of this "cwd\_project" folder from the [GitHub repo](https://github.com/CU-CommunityApps/cwd_project).
     * If your site is a fresh clone of CD Demo, you'll already have cwd_project in `web/themes/custom`.
 
@@ -40,3 +42,11 @@ Usage
 	* If you want it to match the Base Theme, the typography is done in Avenir Next Medium.
 
 8. Remove composer.json from your new theme (no need to keep it).
+
+### Drupal
+After you create your child theme and commit it to your site repo:
+1. Go to /admin/appearance
+2. Enable your new child theme and set it as the default.
+3. Uninstall cwd_project.
+4. Codify the config for the aforementioned theme changes.
+5. Remove cwd_project from your code repo.
