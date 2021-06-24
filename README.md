@@ -3,6 +3,8 @@
 Starter Child Theme for CD Projects
 ===================================
 
+See also: [CD Demo](https://github.com/CU-CommunityApps/cd-demo) - a Drupal starter-kit and demo site.
+
 Usage
 -------
 
