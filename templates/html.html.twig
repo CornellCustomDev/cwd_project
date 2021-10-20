@@ -38,68 +38,15 @@
 
   <div id="skipnav"><a href="#main">{{ 'Skip to main content'|t }}</a></div>
 
-  <div id="cu-search" class="cu-search">
-    <div class="container-fluid">
-      <form id="cu-search-form" tabindex="-1" role="search" action="//cornell.edu/search/">
-        <label for="cu-search-query" class="sr-only">Search:</label>
-        <input type="text" id="cu-search-query" name="q" value="" size="30">
-        <button name="btnG" id="cu-search-submit" type="submit" value="go"><span class="sr-only">Submit Search</span></button>
-
-        <fieldset class="search-filters" role="radiogroup">
-          <legend class="sr-only">Search Filters</legend>
-          <input type="radio" id="cu-search-filter1" name="sitesearch" value="thissite" checked="checked">
-          <label for="cu-search-filter1"><span class="sr-only">Search </span>This Site</label>
-          <input type="radio" id="cu-search-filter2" name="sitesearch" value="cornell">
-          <label for="cu-search-filter2"><span class="sr-only">Search </span>Cornell</label>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-
-{% if node.field_banner_image[0].entity.field_media_image.entity.uri.value %}
-  <div class="band" id="super-header" style="background-image: url({{ file_url(node.field_banner_image[0].entity.field_media_image.entity.uri.value | image_style('page_banner_image')) }})">
-{% else %}
-  <div class="band" id="super-header">
-{% endif %}
-    <header id="cu-header">
-      <div class="cu45-helper"></div>
-      <div class="container-fluid cu-brand">
-        <h1 class="cu-logo"><a href="https://www.cornell.edu"><img class="sr-only" src="{{ base_path ~ directory }}/images/cornell/bold_cornell_logo_simple_b31b1b.svg" alt="Cornell University" width="245" height="62"></a></h1>
-        <div class="cu-unit">
-          {% if is_front -%}
-            <h2>{{ site_name }}</h2>
-            {% if site_slogan is not empty -%}
-            <h3 class="sans">{{ site_slogan }}</h3>
-            {% endif -%}
-          {% else -%}
-            <h2><a href="{{ base_path }}">{{ site_name }}</a></h2>
-            <h3 class="sans"><a href="{{ section_path }}">{{ section_title }}</a></h3>
-          {% endif -%}
-        </div>
-        <div class="buttons">
-          <button class="mobile-button" id="mobile-nav">Main Menu</button>
-          <button class="mobile-button" id="cu-search-button">Toggle Search Form</button>
-          {{ page.nav_utility }}
-        </div>
-      </div>
-    </header>
-
-    <header id="site-header">
-      {{ page.nav_main }}
-    </header>
-
-  {% if is_front -%}
-    <div class="band slider-container">
-      <div class="container-fluid">
-        <div id="slider-caption" class="slider-caption"></div>
-      </div>
-    </div>
-  {% endif -%}
-  </div>
+  {% include "@cwd_project/partials/site-header.html.twig" %}
 
   {{ page_top }}
   {{ page }}
   {{ page_bottom }}
+
+  {# Not ready to use yet b/c footer stuff is included in cwd_base/page.html.twig.
+  Placeholder footer template is in @cwd_project/partials, ready to use down the road -- or for use by new child themes.
+  {% include "@cwd_project/partials/site-footer.html.twig" %} #}
 
   <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   <!-- Emergency banner removed March 2021 -->

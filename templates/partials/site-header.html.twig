@@ -1,0 +1,49 @@
+{% set super_header_attr = create_attribute() %}
+{% set banner_url = '' %}
+{% if node.field_banner_image[0].entity.field_media_image.entity.uri.value -%}
+  {% set banner_url = file_url(node.field_banner_image[0].entity.field_media_image.entity.uri.value | image_style('page_banner_image')) %}
+{% endif -%}
+{% if banner_url != '' -%}
+  {% set super_header_attr = super_header_attr.setAttribute('style', 'background-image: url(' ~ banner_url ~ ')') %}
+{% endif -%}
+
+{% include "@cwd_project/partials/cu-search.html.twig" %}
+
+<div class="band" id="super-header"{{ super_header_attr }}>
+  <header id="cu-header" aria-label="Site banner">
+    <div class="cu45-helper"></div>
+    <div class="container-fluid cu-brand">
+      <h1 class="cu-logo"><a href="https://www.cornell.edu"><img class="sr-only" src="{{ base_path ~ directory }}/images/cornell/bold_cornell_logo_simple_b31b1b.svg" alt="Cornell University" width="245" height="62"></a></h1>
+
+      <div class="cu-unit">
+        {% if is_front -%}
+          <h2>{{ site_name }}</h2>
+          {% if site_slogan is not empty -%}
+            <h3 class="sans">{{ site_slogan }}</h3>
+          {% endif -%}
+        {% else -%}
+          <h2><a href="{{ base_path }}">{{ site_name }}</a></h2>
+          <h3 class="sans"><a href="{{ section_path }}">{{ section_title }}</a></h3>
+        {% endif -%}
+      </div>
+
+      <div class="buttons">
+        <button class="mobile-button" id="mobile-nav">Main Menu</button>
+        <button class="mobile-button" id="cu-search-button">Toggle Search Form</button>
+        {{ page.nav_utility }}
+      </div>
+    </div>
+  </header>
+
+  <header id="site-header" aria-label="Site navigation">
+    {{ page.nav_main }}
+  </header>
+
+  {% if is_front -%}
+    <div class="band slider-container">
+      <div class="container-fluid">
+        <div id="slider-caption" class="slider-caption"></div>
+      </div>
+    </div>
+  {% endif -%}
+</div>
