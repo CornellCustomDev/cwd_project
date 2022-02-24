@@ -98,7 +98,7 @@ $project-color-button-active: $cwd-color-button-active !default; // text button 
 }
 .icon-fa:before, .icon-fa:after {
 	font: normal normal normal 14px/1 FontAwesome;
-	speak: none;
+	speak: never;
 	font-size: inherit;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -108,7 +108,7 @@ $project-color-button-active: $cwd-color-button-active !default; // text button 
 	display: inline-block;
 	font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
 	font-size: inherit;
-	speak: none;
+	speak: never;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

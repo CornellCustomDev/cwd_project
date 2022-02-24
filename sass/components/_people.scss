@@ -88,6 +88,11 @@
 		.affiliations-and-roles p {
 			line-height: 1.4;
 		}
+		.field-body {
+			div p {
+				margin-bottom: 1.5em;
+			}
+		}
 		
 		ul.group-members > li {
 			padding-left: 1.4em;
@@ -118,7 +123,8 @@
 		}
 		
 		.field-email + .field-location, 
-		.field-phone + .field-location {
+		.field-phone + .field-location, 
+		.field-website + .field-location {
 			margin-top: 1em;
 		}
 		
