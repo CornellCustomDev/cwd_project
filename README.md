@@ -43,6 +43,8 @@ Usage
 
 8. Remove composer.json from your new theme (no need to keep it).
 
+9. **⚠️ Proceed with "Drupal" steps below,** including the very important clean-up of cwd_project.
+
 ### Drupal
 After you create your child theme and commit it to your site repo:
 1. Go to /admin/appearance
