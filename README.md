@@ -55,7 +55,7 @@ After you create your child theme and commit it to your site repo:
 
 ## Template sub-folders
 ### Content types and other components
-Sub-folders called `news`, `events`, `slideshow`, etc., are meant for content types and other components.  Broader sub-folders for coponents are also ok, whatever works best for your project.  (For example, on Biotech, it made sense to have a `resources` sub-folder, with templates for Service and Instrument components.)
+Sub-folders called `news`, `events`, `slideshow`, etc., are meant for content types and other components.  Broader sub-folders for components are also ok, whatever works best for your project.  (For example, on Biotech, it made sense to have a `resources` sub-folder, with templates for Service and Instrument components.)
 
 ### `partials`
 Put "partial" templates in here, such as `site-footer.html.twig` and `incl--article-image.html.twig`.  These templates do not fill out an entire template, they are pieces of reusable/repeat markup.  They can be included straight-up, or with arguments (i.e. `include ... with`).
