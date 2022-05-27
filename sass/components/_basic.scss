@@ -105,7 +105,7 @@
 				margin-bottom: 5px;
 			}
 		}
-		h3 {
+		h3, .h3 {
 			margin-bottom: 0.6em;
 			
 			.deco {
@@ -116,14 +116,14 @@
 			}
 		}
 		a {
-			h3:not(.designer) {
+			h3:not(.designer), .h3:not(.designer) {
 				text-decoration: underline;
 				color: $project-color-link !important;
 			}
-			&:hover h3:not(.designer) {
+			&:hover h3:not(.designer), &:hover .h3:not(.designer) {
 				color: $project-color-link-hover !important;
 			}
-			&:active h3:not(.designer) {
+			&:active h3:not(.designer), &:active .h3:not(.designer) {
 				color: $project-color-link-active !important;
 			}
 		}
@@ -270,7 +270,7 @@
 			display: block;
 			position: relative;
 			
-			a, .deco, h3 {
+			a, .deco, h3, .h3 {
 				color: #fff;
 				@include text-decoration-color( rgba(255,255,255,0.5) );
 			}
@@ -280,10 +280,10 @@
 				
 				&:hover {
 					background: rgba(0,0,0,0.05);
-					box-shadow: 0 0 0 15px rgba(0,0,0,0.06);
+					box-shadow: 0 0 0 15px rgba(0,0,0,0.05);
 					
 					color: #fff;
-					.deco, h3 {
+					.deco, h3, .h3 {
 						color: #fff;
 						@include text-decoration-color( rgba(255,255,255,0.9) );
 					}
@@ -293,7 +293,7 @@
 					box-shadow: 0 0 0 15px rgba(0,0,0,0.1);
 					
 					color: #ccc;
-					.deco, h3 {
+					.deco, h3, .h3 {
 						color: #ccc;
 						@include text-decoration-color( rgba(255,255,255,0.3) );
 					}
@@ -411,14 +411,14 @@
 				.card {
 					width: 33.33333%;
 					
-					h3 {
+					h3, .h3 {
 						font-size: 16px;
 					}
 					
 					&:first-of-type {
 						width: 100%;
 						
-						h3 {
+						h3, .h3 {
 							font-size: 22px;
 						}
 					}
@@ -465,17 +465,96 @@
 				}
 			}
 		}
+		&.one-plus-max-4 {
+			@media (min-width: 768px) {
+				.card {
+					width: 50%;
+					
+					h3, .h3 {
+						font-size: 16px;
+					}
+					
+					&:first-of-type {
+						width: 100%;
+						
+						h3, .h3 {
+							font-size: 22px;
+						}
+					}
+				}
+			}
+			@media (min-width: 992px) {
+				.card {
+					width: 25%;
+				}
+				.card:first-of-type {
+					
+					.group-image {
+						display: initial;
+						position: static;
+						
+						a {
+							background: none;
+							box-shadow: none;
+						}
+						img {
+							width: 50% !important;
+							width: calc(50% - 15px) !important;
+							float: left;
+							margin-right: 30px;
+							
+							@media (min-width: 1200px) {
+								width: calc(50% - 20px) !important;
+								margin-right: 40px;
+							}
+						}
+						.relative {
+							width: 50% !important;
+							width: calc(50% - 15px) !important;
+							float: left;
+							margin-right: 30px;
+							
+							@media (min-width: 1200px) {
+								width: calc(50% - 20px) !important;
+								margin-right: 40px;
+							}
+							
+							img {
+								width: 100% !important;
+								margin: 0;
+							}
+						}
+					}
+					.group-fields {
+						width: 47% !important;
+						width: calc(50% - 15px) !important;
+						
+						@media (min-width: 1200px) {
+							width: calc(50% - 20px) !important;
+						}
+					}	
+				}
+			}
+			@media (min-width: 1200px) {
+				.card:first-of-type {
+					.summary {
+						margin-top: 1em;
+						font-size: 18px;
+					}
+				}
+			}
+		}
 		
 		&.no-overlay {
 			
 			.group-image {
 			
-				.deco, h3 {
+				.deco, h3, .h3 {
 					color: $project-color-link;
 					text-decoration: underline;
 					@include text-decoration-color( rgba($project-color-link,0.5) );
 				}
-				h3.designer, h3.designer .deco {
+				h3.designer, h3.designer .deco, .h3.designer, .h3.designer .deco {
 					text-decoration: none;
 					color: #333;
 				}
@@ -489,11 +568,11 @@
 					
 					}
 					
-					&:hover, &:hover .deco, &:hover h3 {
+					&:hover, &:hover .deco, &:hover h3, &:hover .h3 {
 						color: $project-color-link-hover;
 						@include text-decoration-color( rgba(0,0,0,0.7) );
 					}
-					&:active, &:active .deco, &:active h3 {
+					&:active, &:active .deco, &:active h3, &:active .h3 {
 						color: $project-color-link-active;
 						@include text-decoration-color( rgba(0,0,0,0.4) );
 					}
@@ -507,14 +586,14 @@
 			
 			.card a {
 				
-				h3:not(.designer) {
+				h3:not(.designer), .h3:not(.designer) {
 					color: #fff !important;
 					@include text-decoration-color( rgba(255,255,255,0.5) );
 				}
-				&:hover h3:not(.designer) {
+				&:hover h3:not(.designer), &:hover .h3:not(.designer) {
 					@include text-decoration-color( rgba(255,255,255,1) );
 				}
-				&:active h3:not(.designer) {
+				&:active h3:not(.designer), &:active .h3:not(.designer) {
 					color: #ccc !important;
 					@include text-decoration-color( rgba(255,255,255,0.5) );
 				}
@@ -625,7 +704,7 @@
 		color: #ededed;
 	}
 	// more work would be needed for dark support (finish the "all events" link below and adjust the text, link, and icon colors on cards) 
-	a, a h3:not(.designer) {
+	a, a h3:not(.designer), a .h3:not(.designer) {
 		color: #fff !important;
 		@include text-decoration-color( rgba(255,255,255,0.5) );
 				
@@ -675,14 +754,14 @@
 		
 		&.no-overlay {
 			.group-image {
-				.deco, h3 {
+				.deco, h3, .h3 {
 					@include text-decoration-color( rgba(255,255,255,0.5) );
 				}
 				a {
-					&:hover, &:hover .deco, &:hover h3 {
+					&:hover, &:hover .deco, &:hover h3, &:hover .h3 {
 						@include text-decoration-color( rgba(255,255,255,0.8) );
 					}
-					&:active, &:active .deco, &:active h3 {
+					&:active, &:active .deco, &:active h3, &:active .h3 {
 						@include text-decoration-color( rgba(255,255,255,0.6) );
 					}
 				}

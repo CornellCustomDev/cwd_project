@@ -22,12 +22,14 @@ $project-color-button-hover: $cwd-color-button-hover; // text button :hover colo
 $project-color-button-active: $cwd-color-button-active; // text button :active color
 
 // Import CWD Components
+@import "components/tooltip";
 @import "components/type-freight";
 @import "components/utility";
 @import "components/basic";
 @import "components/events";
 @import "components/news";
 @import "components/people";
+@import "components/tables";
 
 
 
@@ -268,9 +270,9 @@ $project-color-button-active: $cwd-color-button-active; // text button :active c
 			display: -moz-box;
 			display: -ms-flexbox;
 			display: flex;
-			-webkit-flex-wrap: nowrap;
-			-ms-flex-wrap: nowrap;
-			flex-wrap: nowrap;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
 			-webkit-box-pack: justify;
 			-webkit-justify-content: space-between;
 			-moz-box-pack: justify;

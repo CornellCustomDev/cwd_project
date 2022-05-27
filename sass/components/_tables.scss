@@ -1,0 +1,109 @@
+// CWD Component: Responsive Table
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+$table-breakpoint: 1023px;
+$table-breakpoint-sidebar: 1279px;
+
+// Component Class
+.table-responsive {
+	&.table-responsive-sidebar {
+		
+	}
+	
+	
+	.mobile-header {
+		display: none;
+		padding: 0.6em 0;
+		border-top: 2px solid #e8e8e8;
+		font-family: $project-font-family-sans-alt;
+		font-size: 16px;
+		font-weight: 400;
+		text-align: center;
+		color: inherit !important;
+		margin: 0;
+	}
+	.mobile-subheader {
+		display: none;
+		font: inherit;
+		margin: 0;
+		color: inherit;
+	}
+	.mobile-label {
+		display: none;
+		font: inherit;
+		font-weight: bolder;
+		font-size: smaller;
+		color: inherit;
+		//border-bottom: 1px solid #f0f0f0;
+	}
+	
+	@media (max-width: $table-breakpoint) {
+		display: block;
+		
+		caption, 
+		thead, 
+		.row-header {
+			display: none;
+		}
+		tbody {
+			display: block;
+			
+			tr {
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 1em;
+			}
+			th {
+				display: block;
+				width: 100% !important;
+				border: 0;
+			}
+			td {
+				display: block;
+				width: 50% !important;
+				border: 0;
+				
+				@media (max-width: 374px) {
+					width: 100% !important;
+					border: 0;
+				}
+			}
+		}
+		.mobile-header, 
+		.mobile-subheader, 
+		.mobile-label {
+			display: block;
+		}
+	}
+	
+	
+	
+	// Container Class Options ---------------------------------
+	
+	// .by-column
+	&.colored, &.striped, &.colored.striped {
+		@media (max-width: $table-breakpoint) {
+			th, tr:nth-child(even) > th[scope='row'] {
+				background: #f3f3f3 !important;
+			}
+			td, tr:nth-child(even) td {
+				background: none;
+			}
+		}
+	}
+	
+	// .by-column
+	&.by-column {
+		
+	}
+	
+}
