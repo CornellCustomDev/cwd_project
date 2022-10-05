@@ -52,3 +52,20 @@ After you create your child theme and commit it to your site repo:
 3. Uninstall cwd_project.
 4. Codify the config for the aforementioned theme changes.
 5. Remove cwd_project from your code repo.
+
+## Template sub-folders
+### Content types and other components
+Sub-folders called `news`, `events`, `slideshow`, etc., are meant for content types and other components.  Broader sub-folders for components are also ok, whatever works best for your project.  (For example, on Biotech, it made sense to have a `resources` sub-folder, with templates for Service and Instrument components.)
+
+### `partials`
+Put "partial" templates in here, such as `site-footer.html.twig` and `incl--article-image.html.twig`.  These templates do not fill out an entire template, they are pieces of reusable/repeat markup.  They can be included straight-up, or with arguments (i.e. `include ... with`).
+
+Example usage:
+* `html.html.twig` use of `site-footer.html.twig`
+* `news--full.html.twig` use of `incl--article-image.html.twig`
+
+### `overrides`
+Put full template overrides in here, such as `views-view.html.twig`, `media.html.twig`, `field--post-date.html.twig`, `_block--with-button.html.twig`. These templates are just that: complete templates.  They can be included straight-up, or included with arguments, or extended, or embedded.
+
+Example usage:
+* TO DO
