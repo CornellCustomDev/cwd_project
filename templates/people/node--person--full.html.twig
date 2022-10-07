@@ -52,13 +52,12 @@
       </div>
     {% endif %}
     {% if node.field_person_ref.value -%}
-      {% set members_heading = 'Group members' %}
+      {# See CBB (Bright Beams) for fancier, reusable way to do the markup around the linked title. #}
       <hr class="invisible">
-      <h2>{{ members_heading }}</h2>
+      <h2>Related people</h2>
       <ul class="custom group-members">
         {% for gm in node.field_person_ref %}
-          {%- set gm_url = path('entity.node.canonical', {'node': gm.entity.nid.value}) -%}
-          <li>{{ drupal_link(gm.entity.title.value|t, gm_url) }}</li>
+          <li>{{ drupal_entity('node', gm.entity.nid.value, 'linked_title') }}</li>
         {% endfor -%}
       </ul>
     {% endif %}
