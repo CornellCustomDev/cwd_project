@@ -1,0 +1,5 @@
+{% set destination_url = url %}
+{%- if node.field_destination_url.value -%}
+  {% set destination_url = node.field_destination_url.0.url %}
+{%- endif -%}
+<a href="{{ destination_url }}">{{- label -}}</a>
