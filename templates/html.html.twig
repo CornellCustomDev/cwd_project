@@ -44,9 +44,7 @@
   {{ page }}
   {{ page_bottom }}
 
-  {# Not ready to use yet b/c footer stuff is included in cwd_base/page.html.twig.
-  Placeholder footer template is in @cwd_project/partials, ready to use down the road -- or for use by new child themes.
-  {% include "@cwd_project/partials/site-footer.html.twig" %} #}
+  {% include "@cwd_project/partials/site-footer.html.twig" %}
 
   <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   <!-- Emergency banner removed March 2021 -->

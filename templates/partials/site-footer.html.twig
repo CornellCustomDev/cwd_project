@@ -1,13 +1,17 @@
-{# PLACEHOLDER until if/when footer stuff is removed from cwd_base/page.html.twig, or we add a page.html.twig template override to cwd_project. #}
-<footer aria-label="Site footer">
+<footer id="body-footer" aria-label="Site footer">
   <div class="main-footer">
     <div class="container-fluid sidebar-left">
       <div class="row">
-        <div class="primary">
-          {{ page.footer_primary }}
-        </div>
-        <div class="secondary">
-          {{ page.footer_secondary }}
+        <div class="flex-grid">
+          <div class="flex-4">
+            {{ page.footer_primary }}
+          </div>
+          <div class="flex-4">
+            {{ page.footer_secondary }}
+          </div>
+          <div class="flex-4">
+            {{ page.footer_tertiary }}
+          </div>
         </div>
       </div>
     </div>
@@ -16,12 +20,17 @@
     <div class="container-fluid sidebar-left">
       <div class="row">
         <div class="content">
-          <div class="privacy">
-            <a href="#">University Privacy</a>
-          </div>
-
-          <div class="footer-accessibility">
-            <a href="https://www.cornell.edu/accessibility-assistance.cfm">Web Accessibility Assistance</a>
+          <div class="two-col">
+            <div>
+              <ul class="custom inline no-bullet">
+                <li><a href="https://privacy.cornell.edu/">University Privacy</a></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="custom inline no-bullet">
+                <li><a href="mailto:web-accessibility@cornell.edu">Web Accessibility Assistance</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
