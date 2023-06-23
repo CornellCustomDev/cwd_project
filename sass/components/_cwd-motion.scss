@@ -1,0 +1,49 @@
+// CWD Component: Custom Development Motion Design (pairs with cwd_motion.js)
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+$project-font-family-sans-serif: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-alt: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-ui: $cornell-font-family-sans-serif !default;
+$project-font-family-serif: $cornell-font-family-serif !default;
+$project-font-family-serif-alt: $cornell-font-family-serif !default;
+$project-color-link: $cwd-color-link !default; // default text link color
+$project-color-link-hover: $cwd-color-link-hover !default; // text link :hover color (also used for :focus)
+$project-color-link-active: $cwd-color-link-active !default; // text link :active color
+$project-color-button: $cwd-color-button !default; // default button link color
+$project-color-button-hover: $cwd-color-button-hover !default; // text button :hover color (also used for :focus)
+$project-color-button-active: $cwd-color-button-active !default; // text button :active color
+
+
+// Component Classes
+.cwd-motion-fadein {
+	
+	&.scripted {
+		opacity: 0;
+	}
+	&.revealed {
+		opacity: 1;
+		transition: opacity 0.5s 0.1s linear;
+	}
+}
+
+.cwd-motion-slidein {
+	
+	&.scripted {
+		opacity: 0;
+		transform: translateY(60px);
+	}
+	&.revealed {
+		transform: translateY(0);
+		opacity: 1;
+		transition: transform 0.5s 0.1s ease-out, opacity 0.5s 0.1s linear;
+	}
+}

@@ -1,0 +1,371 @@
+// CWD Component: Megamenu option for Main Navigation
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+$project-font-family-sans-serif: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-alt: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-ui: $cornell-font-family-sans-serif !default;
+$project-font-family-serif: $cornell-font-family-serif !default;
+$project-font-family-serif-alt: $cornell-font-family-serif !default;
+$project-color-link: $cwd-color-link !default; // default text link color
+$project-color-link-hover: $cwd-color-link-hover !default; // text link :hover color (also used for :focus)
+$project-color-link-active: $cwd-color-link-active !default; // text link :active color
+$project-color-button: $cwd-color-button !default; // default button link color
+$project-color-button-hover: $cwd-color-button-hover !default; // text button :hover color (also used for :focus)
+$project-color-button-active: $cwd-color-button-active !default; // text button :active color
+
+
+// Component Class (designed to apply to #main-navigation)
+#main-navigation.dropdown-megamenu {
+	$scope: &;
+	
+	@media (min-width: 992px) {
+		.top-level-li {
+			position: static !important;
+			
+			ul, li {
+				border: 0 !important;
+				box-shadow: none;
+			}
+			
+			& > .children {
+				width: auto;
+				max-width: 1280px;
+				left: 60px;
+				right: 60px;
+				border: 0;
+				padding: 0 1.5em;
+				background: #555;
+					// light mode
+					@at-root #{$scope}.megamenu-light .top-level-li > .children {
+						background: #f7f7f7;
+						border: 1px solid #dedede !important;
+						border-width: 0 1px !important;
+					}
+				overflow: hidden;
+				transition: none;
+
+				display: grid;
+				gap: 0 15px;
+				grid-template-rows: auto;
+// 				@supports (grid-template-rows: masonry) {
+// 					grid-template-rows: masonry;
+// 					& > li {
+// 						margin-top: 0 !important;
+// 						top: 0 !important;
+// 					}
+// 				}
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-areas: 
+					'spacer spacer spacer'
+					'col1a col2a col3a'
+					'col1b col2b col3b'
+					'col1c col2c col3c'
+					'col1d col2d col3d'
+					'col1e col2e col3e'
+					'col1f col2f col3f'
+					'col1g col2g col3g'
+					'col1h col2h col3h'
+					'end end end';
+					
+				&:before { // spacer
+					content: '';
+					display: block;
+					width: 100%;
+					height: 2em;
+					grid-area: spacer;
+				}
+				.fa {
+					display: none;
+				}
+				
+				& > li {
+					
+					// Position menu items for column-based tab order (JavaScript-supported)
+					// -- supports a maximum of 8 rows (many more than should be present)
+					
+					&.col1a { grid-area: col1a; }
+					&.col1b { grid-area: col1b; }
+					&.col1c { grid-area: col1c; }
+					&.col1d { grid-area: col1d; }
+					&.col1e { grid-area: col1e; }
+					&.col1f { grid-area: col1f; }
+					&.col1g { grid-area: col1g; }
+					&.col1h { grid-area: col1h; }
+					
+					&.col2a { grid-area: col2a; }
+					&.col2b { grid-area: col2b; }
+					&.col2c { grid-area: col2c; }
+					&.col2d { grid-area: col2d; }
+					&.col2e { grid-area: col2e; }
+					&.col2f { grid-area: col2f; }
+					&.col2g { grid-area: col2g; }
+					&.col2h { grid-area: col2h; }
+					
+					&.col3a { grid-area: col3a; }
+					&.col3b { grid-area: col3b; }
+					&.col3c { grid-area: col3c; }
+					&.col3d { grid-area: col3d; }
+					&.col3e { grid-area: col3e; }
+					&.col3f { grid-area: col3f; }
+					&.col3g { grid-area: col3g; }
+					&.col3h { grid-area: col3h; }
+					
+					position: relative;
+					color: #ccc;
+						// light mode
+						@at-root #{$scope}.megamenu-light .top-level-li > .children > li {
+							color: #666;
+						}
+					font-family: $project-font-family-serif;
+					font-size: 20px;
+					margin: 0 0 2em;
+// 					@supports (grid-template-rows: masonry) {
+// 						margin-bottom: 2em !important;
+// 					}
+					
+					li {
+						margin: 0 0 0.4em;
+						
+// 						&:last-child {
+// 							margin-bottom: 0;
+// 						}
+					}
+				}
+				.children {
+					background: none;
+					position: revert !important;
+					overflow: revert;
+					height: revert;
+					opacity: 1;
+					z-index: 101;
+					width: 100%;
+					min-width: revert;
+					max-width: revert;
+					margin: 1em 0 0 !important;
+					
+					.children {
+						display: none !important; // the megamenu concept does not support beyond 3 levels
+					}
+				}
+				
+				&.hold-open { // hold a menu open permanently (for development/debugging)
+					height: auto !important;
+					opacity: 1 !important;
+				}
+				
+				a {
+					display: revert;
+					padding: revert;
+					background: none;
+					color: #fff;
+					text-decoration: underline;
+					text-decoration-thickness: 1px;
+					text-underline-offset: 0.125em;
+					text-decoration-color: rgba(255,255,255,0.3);
+						// light mode
+						@at-root #{$scope}.megamenu-light .top-level-li > .children a:not(.link-button) {
+							color: #000;
+							text-decoration-color: rgba(0,0,0,0.12);
+						}
+					
+					span { // alleviate Safari hover bug
+						text-decoration-thickness: inherit;
+						text-underline-offset: inherit;
+						text-decoration-color: inherit;
+					}
+					
+					&:hover {
+						background: none;
+						text-decoration-thickness: 1px;
+						text-underline-offset: 0.125em;
+						text-decoration-color: rgba(255,255,255,0.85);
+							// light mode
+							@at-root #{$scope}.megamenu-light .top-level-li > .children a:not(.link-button):hover {
+								text-decoration-color: rgba(0,0,0,0.7);
+							}
+					}
+					&:active {
+						background: none;
+						color: #aaa;
+						text-decoration-thickness: 1px;
+						text-underline-offset: 0.125em;
+						text-decoration-color: rgba(255,255,255,0.3);
+							// light mode
+							@at-root #{$scope}.megamenu-light .top-level-li > .children a:not(.link-button):active {
+								color: #707070;
+								text-decoration-color: rgba(0,0,0,0.4);
+							}
+					}
+				}
+			}
+			
+			&.open > .children, 
+			&.parent:hover > .children { // shadows and column tinting rendered in open state only, to work around a bug in older versions of Safari 
+				box-shadow: 0 10px 20px rgba(0,0,0,0.04), 0 1px 0 rgba(0,0,0,0.25);
+				//box-shadow: -50vw 0 0 #555, 50vw 0 0 #555, -25vw 0 0 #555, 25vw 0 0 #555; // extend to full window width
+			}
+		}
+		.menu-section {
+			border: 0 !important;
+		}
+		
+		// Enable line wrap
+		.top-level-li > .children > li {
+			
+			.children {
+				margin-top: 0.8em !important;
+			}
+			li {
+				margin-bottom: 0.25em;
+			}
+			a span:first-of-type {
+				white-space: normal;
+				line-height: 1.25;
+			}
+		}
+	}
+	@media (min-width: 1200px) {
+		.top-level-li {
+			
+			& > .children {
+				gap: 0 30px;
+			}
+		}
+	}
+	@media (min-width: 1400px) {
+		.top-level-li {
+			
+			& > .children {
+				width: 1280px;
+				left: calc(50vw - 640px - (50vw - 50%));
+				right: calc(50vw - 640px - (50vw - 50%));
+			}
+		}
+	}
+	
+	
+	// Container Class Options ---------------------------------
+	
+	// nom nom mode, to gobble up the top level links visually (the parent link is within the menu panel)
+	&.megamenu-nom-nom {
+		@media (min-width: 992px) {
+			
+			& > .container-fluid > ul {
+				padding: 12px 18px;
+				
+				&.open {
+					background: #333 !important;
+						// light mode
+						@at-root #{$scope}.megamenu-nom-nom.megamenu-light > .container-fluid > ul.open {
+							background: #f7f7f7 !important;
+						}
+				}
+			}
+			.top-level-li.parent:hover > a, 
+			.top-level-li.parent.open > a {
+				border-radius: 2px !important;
+				background: $project-color-button !important;
+				
+				&:hover, &:focus {
+					text-decoration: underline;
+				}
+				&:active {
+					background: $project-color-button-active !important;
+				}
+			}
+			.top-level-li > .children {
+				background: linear-gradient(to bottom, #333 0%,#333 100%) 0 100% no-repeat;
+				background-size: 100% calc(100% - 12px) !important;
+				
+				&:before {
+					height: calc(2.05em + 12px);
+				}
+			}
+		}
+	}
+	
+}
+
+// Menu Feature
+#main-navigation .top-level-li > .children > li.menu-feature {
+	background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.25) 100%) !important;
+	padding: 20px 1.5em 24px 2.25em;
+	line-height: 1.4 !important;
+	margin-left: -2.25em;
+	width: calc(100% + 2.25em);
+	font-family: $project-font-family-sans-serif;
+	
+	@media (min-width: 992px) {
+		font-size: 17px;
+		grid-area: 2 / 3 / span end / 3;
+		padding: 0 0 0 1.25em;
+		margin-left: revert;
+		width: revert;
+		background: rgba(0,0,0,0.1) !important;
+		box-shadow: 1.5em 0 0 2em rgba(0,0,0,0.1);
+			// light mode
+			@at-root #main-navigation.megamenu-light .top-level-li > .children > li.menu-feature {
+				background: rgba(0,0,0,0.04) !important;
+				box-shadow: 1.5em 0 0 2em rgba(0,0,0,0.04);
+				color: #000;
+			}
+	}
+	@media (min-width: 1200px) {
+		font-size: 18px;
+	}
+	
+	.feature-content {
+			
+			img {
+				margin: 0.8em 0;
+				
+				&:first-child {
+					margin-top: 0.2em;
+				}
+				
+				@media (min-width: 992px) {
+					margin: 1em 0;
+					
+					&:first-child {
+						margin-top: -0.15em;
+					}
+				}
+			}
+		}
+	
+	h2 {
+		font-family: $project-font-family-serif;
+		font-size: 24px;
+		margin: -0.1em 0 0.5em;
+		
+		@media (min-width: 1200px) {
+			font-size: 26px;
+		}
+	}
+	p {
+		
+	}
+	.link-button {
+		padding: 0.5em 0.9em !important;
+		line-height: revert !important;
+		text-decoration: none;
+		display: inline-block;
+		background: $project-color-button !important;
+		
+		&:hover {
+			background: $project-color-button-hover !important;
+		}
+		&:active {
+			background: $project-color-button-active !important;
+		}
+	}
+}

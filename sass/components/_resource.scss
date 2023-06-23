@@ -1,0 +1,236 @@
+// CWD Component: Resource and Resource Table
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+
+// Component Class
+.cwd-resource {
+	
+	.link {
+		margin: revert;
+	}
+	.subheading-secondary {
+		font-size: 11px;
+		color: #707070;
+	}
+	.affiliation:before {
+		@extend .icon-zmdi;
+		content: '\f112' !important;
+		margin-right: 0.3em;
+	}
+	
+	.metadata-set > * {
+		border-color: #d9d9d9;
+	}
+	
+	.badge {
+		@extend .icon-fa;
+		
+		&:before {
+			content: '\f016';
+			margin: 0 0.1em 0 0;
+			font-size: 14px;
+			color: #bbb;
+			width: 1.1em;
+			display: inline-block;
+		}
+		
+		&.txt:before {
+			content: '\f0f6';
+		}
+		&.doc:before, &.docx:before {
+			content: '\f1c2';
+		}
+		&.pdf:before {
+			content: '\f1c1';
+		}
+		&.link:before {
+			content: '\f097';
+			font-size: 16px;
+			width: 0.9625em;
+			position: relative;
+			top: 1px;
+		}
+	}
+	
+	
+	// Container Class Options ---------------------------------
+	
+	// .full
+	&.full {
+		
+		
+	}
+	
+	// .animate
+	&.animate {
+		
+	}
+	
+	// .tiles
+	&.tiles {
+		
+	}
+	
+	// .resource-table (a space-efficient, table-like layout)
+	&.resource-table {
+		
+		.card {
+			@media (min-width: 768px) {
+				padding-top: 18px;
+				
+				&:after {
+					padding-top: 13px;
+				}
+			}
+			
+			.group-image a {
+				@extend .icon-fa;
+		
+				&:before {
+					content: '\f016';
+					margin: 0 0.1em 0 0;
+					font-size: 30px;
+					color: #fff;
+					background: #14323c;
+					background: linear-gradient(135deg, rgba(20,50,60,1) 0%,rgba(20,50,60,0.7) 100%);
+					display: inline-block;
+					text-align: center;
+					border-radius: 3px;
+					position: absolute;
+					left: 0;
+					width: 40px;
+					height: 45px;
+					line-height: 45px;
+					opacity: 0.8;
+					transition: opacity 0.15s;
+					
+					@media (min-width: 768px) {
+						font-size: 39px;
+						width: 60px;
+						height: 68px;
+						line-height: 70px;
+					}
+					@media (min-width: 1200px) {
+						font-size: 44px;
+						width: 72px;
+						height: 82px;
+						line-height: 85px;
+					}
+				}
+				&:hover:before {
+					opacity: 1;
+					transition: opacity 0.15s;
+				}
+				&:hover:active {
+					opacity: 0.6;
+					transition: opacity 0s;
+				}
+		
+				&.txt:before {
+					content: '\f0f6';
+				}
+				&.doc:before, &.docx:before {
+					content: '\f1c2';
+				}
+				&.pdf:before {
+					content: '\f1c1';
+				}
+				&.link:before {
+					content: '\f097';
+					font-size: 33px;
+					background: linear-gradient(135deg, rgba(79,26,26,1) 0%,rgba(79,26,26,0.68) 100%);
+					
+					@media (min-width: 768px) {
+						font-size: 44px;
+					}
+					@media (min-width: 1200px) {
+						font-size: 48px;
+					}
+				}
+				
+				img {
+					// this expects a blank, transparent image (blank_portrait.gif)
+					width: 40px;
+					margin-right: 4%;
+					float: left;
+				
+					@media (min-width: 768px) {
+						width: 60px;
+						margin-right: 2%;
+					}
+					@media (min-width: 1200px) {
+						width: 72px;
+					}
+				}
+				
+				.overlay {
+					min-height: 45px;
+					display: flex;
+					align-items: center;
+					
+					@media (min-width: 768px) {
+						min-height: revert;
+					}
+				}
+				
+				h3, &:hover h3 {
+					transition: color 0.15s;
+				}
+				&:active h3 {
+					transition: color 0s;
+				}
+			}
+			.group-fields {
+				clear: both;
+				
+				@media (min-width: 768px) {
+					clear: revert;
+					width: calc(98% - 60px);
+					
+					h4, .metadata-set {
+						display: inline;
+						margin-right: 30px;
+					}
+				}
+				@media (min-width: 1200px) {
+					width: calc(98% - 72px);
+				}
+			}
+			h3 {
+				font-size: 17px;
+				line-height: 1.3;
+				margin-bottom: 0.3em;
+				
+				@media (min-width: 375px) {
+					font-size: 18px;
+				}
+			}
+			.summary {
+				margin-bottom: 0.7em !important;
+				
+				@media (min-width: 768px) {
+					margin-bottom: 0.3em !important;
+				}
+			}
+		}
+	}
+	
+}
+
+// .dark (for display over dark backgrounds)
+.dark .cwd-people {
+	
+	.subheading-secondary {
+		color: #bbb;
+	}
+}
+

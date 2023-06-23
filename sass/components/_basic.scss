@@ -549,7 +549,7 @@
 			
 			.group-image {
 			
-				.deco, h3, .h3 {
+				.deco, h3, .h3, h4, .h4, p, sub-heading {
 					color: $project-color-link;
 					text-decoration: underline;
 					@include text-decoration-color( rgba($project-color-link,0.5) );
@@ -653,6 +653,10 @@
 			.group-image a {
 				box-shadow: none !important;
 			}
+		}
+		&.slide-mobile .card, 
+		&.slide-mobile .card:first-of-type {
+			padding-top: 0px;
 		}
 	}
 	

@@ -1,0 +1,342 @@
+// CWD Component: Tab Interface (but not necessarily "tablist" role behavior)
+// ---------------------------------------------------------------------------
+// Recommended breakpoints to match base theme:
+// @media (min-width: 321px) - above 3.5" phones begins
+// @media (min-width: 480px)
+// @media (min-width: 624px)
+// @media (min-width: 768px) - tablet begins, sidebar begins
+// @media (min-width: 992px) - desktop main navigation begins
+// @media (min-width: 1080px)
+// @media (min-width: 1200px)
+// @media (min-width: 1400px) - maximum content width begins
+
+$project-font-family-sans-serif: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-alt: $cornell-font-family-sans-serif !default;
+$project-font-family-sans-ui: $cornell-font-family-sans-serif !default;
+$project-font-family-serif: $cornell-font-family-serif !default;
+$project-font-family-serif-alt: $cornell-font-family-serif !default;
+$project-color-link: $cwd-color-link !default; // default text link color
+$project-color-link-hover: $cwd-color-link-hover !default; // text link :hover color (also used for :focus)
+$project-color-link-active: $cwd-color-link-active !default; // text link :active color
+$project-color-button: $cwd-color-button !default; // default button link color
+$project-color-button-hover: $cwd-color-button-hover !default; // text button :hover color (also used for :focus)
+$project-color-button-active: $cwd-color-button-active !default; // text button :active color
+
+
+@keyframes tab-arrow-transition {
+	0%   { background-image: none; background-position: calc(100% - 5px) calc(100% - 0.08em); }
+	60%  { background-image: none; background-position: calc(100% - 5px) calc(100% - 0.08em); }
+	100% { background-image: url('../images/brooks/link_arrow.svg'); background-position: 100% calc(100% - 0.08em); }
+}
+
+// Component Class
+.tab-interface {
+	$scope: &;
+	
+	//position: relative;
+	margin-bottom: 1.5em;
+	// grid display engages at 768px below
+	grid-template-columns: calc(37% - 10px) calc(63% - 10px);
+	gap: 0 20px;
+	
+	@media (min-width: 768px) {
+		display: grid;
+		
+		// persistent background image
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: calc(37% + 10px);
+			background: #222 url('../images/brooks/triangles_tab_interface.svg') 50% 50% no-repeat;
+		}
+	}
+	
+	.tab-label {
+		background: #f7f7f7;
+		font-size: 17px;
+		color: #000;
+		cursor: default;
+		padding: 4% 3.5%;
+		display: none;
+		align-items: center;
+		transition: background-color 0.2s, color 0.2s;
+		
+		&.compact { padding: 3% 3.5%; }
+		&.ultra-compact { padding: 2% 3.5%; }
+		
+		@media (min-width: 768px) {
+			display: flex;
+			font-size: 20px;
+			padding: 8% 7%;
+			border-top: 1px solid #000;
+			
+			&.compact { padding: 6% 7%; }
+			&.ultra-compact { padding: 4% 7%; }
+		}
+		
+		@media (min-width: 1200px) {
+			font-size: 22px;
+		}
+		
+		&:first-child {
+			border-top: 0;
+		}
+		&:hover {
+			@media (min-width: 768px) {
+				background: #ddd;
+			}
+		}
+		&.active {
+			background: #000;
+			color: #fff;
+			
+			@at-root #{$scope}.active-tab-red .tab-label.active {
+				background: #b31b1b;
+			}
+		}
+		.deco {
+			pointer-events: none;
+		}
+	}
+	a.tab-label {
+		cursor: pointer;
+		//transition: background-color 0s, color 0s 0s;
+		background: #000;
+		text-decoration-color: rgba(255,255,255,0.5);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.125em;
+		color: #fff;
+		display: block;
+		position: absolute;
+		left: 40%;
+		right: 8px;
+		margin-top: 40vw;
+		z-index: 1;
+		text-align: center;
+		
+		&:after {
+			@extend .icon-zmdi;
+			content: '\f2ee';
+			position: absolute;
+			top: calc(50% - 0.4em);
+			right: 7px;
+			color: #000;
+			background: #fff;
+			width: 1em;
+			height: 1em;
+			text-align: center;
+			line-height: 1;
+			opacity: 0;
+			//transition: opacity 0.5s 0s;
+		}
+		
+		@media (min-width: 768px) {
+			background: #f7f7f7;
+			color: #000;
+			text-decoration: none;
+			position: relative;
+			left: revert;
+			right: revert;
+			margin: revert;
+			text-align: revert;
+		}
+		
+		.deco {
+			padding-bottom: 2px;
+			background: linear-gradient(to right, rgba(197,53,34,0) 0%,rgba(179,27,27,0) 100%);
+			background-position: 0 1.35em;
+			background-repeat: no-repeat;
+			background-size: 0 2px;
+		}
+		&.active {
+			//transition: background-color 0s, color 0.3s 0s;
+			
+			@media (min-width: 768px) {
+				.deco {
+					background: linear-gradient(to right, rgba(197,53,34,1) 0%,rgba(179,27,27,1) 100%);
+					background-position: 0 1.35em;
+					background-repeat: no-repeat;
+					background-size: 100% 2px;
+					transition: background-size 0.25s 0.2s;
+				}
+			}
+			@media (min-width: 992px) {
+				&:hover:after {
+					opacity: 0.35;
+					transition: opacity 0.25s 0.2s;
+				}
+			}
+		}
+		&:active {
+			opacity: 0.75;
+		}
+		
+		&.rad {
+			
+			.deco {
+				
+				.inner {
+					background: transparent 100% calc(100% - 0.08em) no-repeat;
+					background-size: 1em;
+					padding-right: 1em;
+					transition: background-image 1s 1s;
+				}
+			}
+			&:after {
+				content: none;
+			}
+		
+			&.active {
+				.deco {
+					background-size: calc(100% - 1em) 2px;
+				}
+				&:hover {
+					.inner {
+						background-image: url('../images/brooks/link_arrow.svg');
+						animation-name: tab-arrow-transition;
+						animation-duration: 0.4s;
+						animation-timing-function: ease-out;
+					}
+				}
+			}
+		}
+	}
+	.tab-content {
+		padding: 8% 7.5%;
+		min-height: 56.25vw;
+		margin-bottom: 2.5em;
+		//background: rgba(#000,0.1) 50% 50% no-repeat;
+		background: #121212 url('../images/brooks/triangles_tab_interface.svg') 50% 50% no-repeat;
+		background-size: cover;
+		position: relative;
+		grid-area: 1 / 2 / span 50 / 2; // "span 50" will be replaced by the number of tabs below (JavaScript calculation)
+		
+		@at-root #{$scope}[data-tabcount='1'] .tab-content { grid-area: 1 / 2 / span 1 / 2; }
+		@at-root #{$scope}[data-tabcount='2'] .tab-content { grid-area: 1 / 2 / span 2 / 2; }
+		@at-root #{$scope}[data-tabcount='3'] .tab-content { grid-area: 1 / 2 / span 3 / 2; }
+		@at-root #{$scope}[data-tabcount='4'] .tab-content { grid-area: 1 / 2 / span 4 / 2; }
+		@at-root #{$scope}[data-tabcount='5'] .tab-content { grid-area: 1 / 2 / span 5 / 2; }
+		@at-root #{$scope}[data-tabcount='6'] .tab-content { grid-area: 1 / 2 / span 6 / 2; }
+		@at-root #{$scope}[data-tabcount='7'] .tab-content { grid-area: 1 / 2 / span 7 / 2; }
+		@at-root #{$scope}[data-tabcount='8'] .tab-content { grid-area: 1 / 2 / span 8 / 2; }
+		@at-root #{$scope}[data-tabcount='9'] .tab-content { grid-area: 1 / 2 / span 9 / 2; }
+		@at-root #{$scope}[data-tabcount='10'] .tab-content { grid-area: 1 / 2 / span 10 / 2; }
+		@at-root #{$scope}[data-tabcount='11'] .tab-content { grid-area: 1 / 2 / span 11 / 2; }
+		@at-root #{$scope}[data-tabcount='12'] .tab-content { grid-area: 1 / 2 / span 12 / 2; }
+		@at-root #{$scope}[data-tabcount='13'] .tab-content { grid-area: 1 / 2 / span 13 / 2; }
+		@at-root #{$scope}[data-tabcount='14'] .tab-content { grid-area: 1 / 2 / span 14 / 2; }
+		@at-root #{$scope}[data-tabcount='15'] .tab-content { grid-area: 1 / 2 / span 15 / 2; }
+		@at-root #{$scope}[data-tabcount='16'] .tab-content { grid-area: 1 / 2 / span 16 / 2; }
+		@at-root #{$scope}[data-tabcount='17'] .tab-content { grid-area: 1 / 2 / span 17 / 2; }
+		@at-root #{$scope}[data-tabcount='18'] .tab-content { grid-area: 1 / 2 / span 18 / 2; }
+		@at-root #{$scope}[data-tabcount='19'] .tab-content { grid-area: 1 / 2 / span 19 / 2; }
+		@at-root #{$scope}[data-tabcount='20'] .tab-content { grid-area: 1 / 2 / span 20 / 2; }
+		
+		@media (min-width: 768px) {
+			// JavaScript control begins
+			opacity: 0;
+			transition: opacity 0.4s;
+			min-height: 400px;
+			margin-bottom: 0;
+			pointer-events: none;
+			background: transparent 50% 50% no-repeat;
+			background-size: cover;
+		}
+		
+		&.active {
+			opacity: 1;
+			transition: opacity 0.8s;
+			pointer-events: revert;
+		}
+		
+		& > .content {
+			color: #fff;
+			font-size: 18px;
+			
+			@media (min-width: 1200px) {
+				font-size: 20px;
+			}
+			
+			h2, h3, h4, h5, h6, 
+			.h2, .h3, .h4, .h5, .h6 {
+				color: #fff !important;
+				font-weight: 600;
+			}
+			h3, .h3 {
+				margin-bottom: 0.9em;
+				
+				@media (min-width: 1200px) {
+					font-size: 25px;
+				}
+			}
+			p {
+				margin-bottom: 1.75em;
+			}
+			.link-button {
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+			
+			& > * {
+				position: relative;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: rgba(#000,0.55);
+			}
+			&.no-bg-tint:before {
+				content: none;
+			}
+		}
+	}
+	
+	
+	
+	@media (min-width: 992px) {
+		
+	}
+	@media (min-width: 1400px) {
+		
+	}
+	
+	
+	
+	
+	// Container Class Options ---------------------------------
+	&.tabs-right {
+		grid-template-columns: calc(63% - 10px) calc(37% - 10px);
+		
+		.tab-content {
+			grid-area: 1 / 1 / span 50 / 1; // "span 50" will be replaced by the number of tabs below (JavaScript calculation)
+			
+			@at-root #{$scope}.tabs-right[data-tabcount='1'] .tab-content { grid-area: 1 / 1 / span 1 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='2'] .tab-content { grid-area: 1 / 1 / span 2 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='3'] .tab-content { grid-area: 1 / 1 / span 3 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='4'] .tab-content { grid-area: 1 / 1 / span 4 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='5'] .tab-content { grid-area: 1 / 1 / span 5 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='6'] .tab-content { grid-area: 1 / 1 / span 6 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='7'] .tab-content { grid-area: 1 / 1 / span 7 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='8'] .tab-content { grid-area: 1 / 1 / span 8 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='9'] .tab-content { grid-area: 1 / 1 / span 9 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='10'] .tab-content { grid-area: 1 / 1 / span 10 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='11'] .tab-content { grid-area: 1 / 1 / span 11 / 1; }
+			@at-root #{$scope}.tabs-right[data-tabcount='12'] .tab-content { grid-area: 1 / 1 / span 12 / 1; }
+		}
+		
+		&:before {
+			right: calc(37% + 10px);
+			left: 0;
+		}
+	}
+	
+}
+
