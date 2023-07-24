@@ -1,6 +1,6 @@
-{% extends "@cwd_base/slideshow/node--slideshow.html.twig" %}
 {# Override the container markup and cwd_slider() JavaScript function to configure slider options for the site. #}
 
+{% embed "@cwd_base/slideshow/node--slideshow.html.twig" %}
 {# Slider Markup #}
 {% block container_override %}
   {% if is_front %}
@@ -21,3 +21,5 @@
     <script>cwd_slider('#slider{{ node.id }}','#slider-headline{{ node.id }}',8,1,false,true);</script>
   {% endif %}
 {% endblock %}
+
+{% endembed %}
