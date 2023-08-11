@@ -4,6 +4,8 @@ global-styling:
       css/project.css: {}
   js:
     js/project.js: {}
+  dependencies:
+    - core/once
 
 typekit:
   css:
