@@ -10,7 +10,7 @@
     <div class="date">
       {{ event_date|date('F jS, Y') }}
     </div>
-    {%- if node.field_event_location.0 %},
+    {%- if node.field_event_location.0 %}
       <span class="event-location">{{ content.field_event_location }}</span>
     {% endif %}
 
