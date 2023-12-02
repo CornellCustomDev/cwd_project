@@ -1,0 +1,23 @@
+{% extends "node.html.twig" %}
+{% block content -%}
+<div class="cwd-component cwd-basic cwd-event full">
+
+  {{ content.field_event_image }}
+
+  <div class="group-fields">
+    {% set event_date = content.field_event_date.0['#text'] %}
+    {% set event_time_string = event_date|date('g:ia') %}
+    <div class="date">
+      {{ event_date|date('F jS, Y') }}
+    </div>
+
+    {% if node.field_destination_url.value %}
+    <div class="field-destination high-margin">
+      <p><strong class="tutorial note">Note:</strong> Event info is on the <a href="{{ node.field_destination_url.0.url }}">Cornell Calendar website</a>.</p>
+    </div>
+    {% endif %}
+    {{ node.body|view('full') }}
+  </div>
+
+</div>
+{% endblock %}
