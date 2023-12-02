@@ -1,7 +1,5 @@
-{% extends "node.html.twig" %}
-
+{% embed "@cwd_base/node.html.twig" %}
 {% block content -%}
-
 <div class="cwd-component cwd-spotlight full">
 
   {% if node.field_image.value %}
@@ -35,3 +33,4 @@
 
 </div>
 {% endblock %}
+{% endembed %}

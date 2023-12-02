@@ -1,7 +1,5 @@
-{% extends "node.html.twig" %}
-
+{% embed "@cwd_base/node.html.twig" %}
 {% block title -%}{% endblock %}
-
 {% block content -%}
 
   {% set destination_url = url %}
@@ -39,5 +37,5 @@
     </div>
   {%- endif %}
   </div>
-
 {% endblock %}
+{% endembed %}
