@@ -17,14 +17,23 @@
     not root_path ? 'home' : 'secondary-page',
     'cu-seal',
     'cu-gray',
-    root_path ? 'sidebar',
-    root_path ? 'sidebar-right',
-    root_path ? 'sidebar-tint',
-    root_path ? 'sidebar-tint-fade',
-    root_path ? 'sidebar-tint-edge',
     node.field_banner_image[0].entity.field_media_image.entity.uri.value ? 'custom-banner'
   ]
 %}
+
+{# Page Styles #}
+{% set sidebar_classes_home = [''] %}
+{% set sidebar_classes_secondary = ['sidebar', 'sidebar-right', 'sidebar-tint', 'sidebar-tint-fade', 'sidebar-tint-edge'] %}
+
+{% if node.field_page_style.value is not empty and node.field_page_style.value != 'sidebar' %}
+  {% set sidebar_classes_secondary = [node.field_page_style.value] %}
+{% endif %}
+{% if not root_path %}
+  {% set body_classes = body_classes|merge(sidebar_classes_home) %}
+{% else %}
+  {% set body_classes = body_classes|merge(sidebar_classes_secondary) %}
+{% endif %}
+
 <!DOCTYPE html>
 <html{{ html_attributes }}>
 <head>
