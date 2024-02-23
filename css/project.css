@@ -203,7 +203,8 @@ article footer,
 .cwd-component .subheading.subheading-secondary h4,
 .cwd-component h4.subheading.subheading-secondary,
 .cwd-component ul.inline,
-.cwd-tooltip {
+.cwd-tooltip,
+table.compact td, table.compact th {
   font-size: 14px; }
 
 body > footer ul li,
