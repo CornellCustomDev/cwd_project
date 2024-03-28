@@ -1,3 +1,6 @@
+{# Important: In Drupal display settings, set date field output to use
+"html_datetime" format. (We have to use Drupal display settings because when we
+don't, the timezone gets messed up 😑 #}
 {% set event_date = content.field_event_date.0['#text'] %}
 
   <div class="group-image">
