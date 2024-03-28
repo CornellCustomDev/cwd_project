@@ -5,6 +5,7 @@
   {{ content.field_event_image }}
 
   <div class="group-fields">
+    {# See comment about date field settings in node--event.html.twig. #}
     {% set event_date = content.field_event_date.0['#text'] %}
     {% set event_time_string = event_date|date('g:ia') %}
     <div class="date">
