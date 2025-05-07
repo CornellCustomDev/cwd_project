@@ -20,10 +20,10 @@ Usage
 	* cwd_project.info.yml &#8594; **cwd\_ursine**.info.yml
 	* cwd_project.libraries.yml &#8594; **cwd\_ursine**.libraries.yml
 	* cwd_project.theme &#8594; **cwd\_ursine**.theme
-	
+
 		* CSS and JavaScript assets should be renamed too, but don't need to match the theme's machine name. Simplifying to **ursine.css** would be fine, for example.
-		
-		* The starter `project.scss` and `project.css` files are empty (except for some breakpoint recommendations in comments). The starter `project.js` is also empty, except for Drupal-specific search code that we commonly need on every project (but also commonly customized). 
+
+		* The starter `project.scss` and `project.css` files are empty (except for some breakpoint recommendations in comments). The starter `project.js` is also empty, except for Drupal-specific search code that we commonly need on every project (but also commonly customized).
 
 4. The "project" machine name must also be updated in the contents of the newly renamed **cwd\_ursine.info.yml**. These instances are marked with a `@CUSTOMIZE` comment for extra clarity. For example, in the libraries section:
 
@@ -32,18 +32,20 @@ Usage
 5. Also in **cwd\_ursine.info.yml**, the front-facing "CWD Starter Theme" name should be set appropriately. <nobr>**(line 5)**</nobr>
 
 	* Optionally, you can also uncomment the libraries reference to custom CKEditor styles. <nobr>**(lines 27 & 28)**</nobr>
-	
+
 	* CKEditor styles are already inherited from the Base Theme, so you should only uncomment these two lines if project-specific styles are needed, and they would not be appropriate to add to the Base Theme itself. If you use custom CKEditor styles, you'll need to add a copy of the `css/ckeditor` folder from the Base Theme to your child theme for modification, and update the `templates/ckeditor_templates.js` file as needed.
 
 6. In **cwd\_ursine.libraries.yml**, the references to filenames for CSS and JavaScript assets (named in step 3 above) should be updated. This is also where you will add any additional custom assets for your project.
 
-7. There is also a `screenshot.png` file in the theme which is used in the Drupal CMS. Ask a designer for help updating this!
+7. Within the contents of the newly renamed JavaScript file, change references to "cwd_project" to your new theme name, **cwd_ursine**.
+
+8. There is also a `screenshot.png` file in the theme which is used in the Drupal CMS. Ask a designer for help updating this!
 
 	* If you want it to match the Base Theme, the typography is done in Avenir Next Medium.
 
-8. Remove composer.json from your new theme (no need to keep it).
+9. Remove composer.json from your new theme (no need to keep it).
 
-9. **⚠️ Proceed with "Drupal" steps below,** including the very important clean-up of cwd_project.
+10. **⚠️ Proceed with "Drupal" steps below,** including the very important clean-up of cwd_project.
 
 ### Drupal
 After you create your child theme and commit it to your site repo:
